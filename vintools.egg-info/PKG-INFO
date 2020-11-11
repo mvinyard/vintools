@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: vintools
+Version: 0.0.0
+Summary: vintools: Michael Vinyard's utilities.
+Home-page: https://github.com/mvinyard/vintools
+Author: Michael E. Vinyard - Harvard University - Massachussetts General Hospital - Broad Institute of MIT and Harvard
+Author-email: mvinyard@broadinstitute.org
+License: MIT
+Description: # vintools
+        Michael Vinyard's utilities
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >3.6.0
+Description-Content-Type: text/markdown
