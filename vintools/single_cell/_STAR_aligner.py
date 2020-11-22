@@ -93,15 +93,16 @@ class STAR:
         return output, error
 
 import time
+from tqdm.notebook import tqdm as progress_bar
 
-def _STAR_align(fastqs, ref_genome, alignment_outs, threads=10):
+def _STAR_align(fastqs, ref_genome, alignment_outs, threads=10, viz_metrics=False):
     
     samples = get_sample_names(fastqs)
     
     alignment_out_messages = []
     alignment_err_messages = []
 
-    for sample in samples:
+    for sample in progress_bar(samples, desc="Alignment progress"):
         
         sample_start_time = time.time()
 
@@ -118,10 +119,11 @@ def _STAR_align(fastqs, ref_genome, alignment_outs, threads=10):
         print("Aligned read files (.bam) are stored at: ", alignment_outs + sample)
         print("Metrics: ")
         
-        metrics_file = alignment_outs + sample + "Log.final.out"
+        if viz_metrics == True:
+            metrics_file = alignment_outs + sample + "Log.final.out"
 
-        metrics = open(metrics_file, "r")
-        print(metrics.read())
+            metrics = open(metrics_file, "r")
+            print(metrics.read())
 
         
     return alignment_out_messages, alignment_err_messages
