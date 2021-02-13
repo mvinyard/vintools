@@ -13,6 +13,5 @@ vintools/plotting/__init__.py
 vintools/simulation/__init__.py
 vintools/single_cell/_STAR_aligner.py
 vintools/single_cell/__init__.py
-vintools/single_cell/_read_adata.py
 vintools/testing_and_development/__init__.py
 vintools/utilities/__init__.py

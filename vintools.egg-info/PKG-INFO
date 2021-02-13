@@ -6,8 +6,25 @@ Home-page: https://github.com/mvinyard/vintools
 Author: Michael E. Vinyard - Harvard University - Massachussetts General Hospital - Broad Institute of MIT and Harvard
 Author-email: mvinyard@broadinstitute.org
 License: MIT
-Description: # vintools
+Description: #### vintools
         Michael Vinyard's utilities
+        ---
+        
+        
+        **To install**:
+        
+        ```
+        cd vintools
+        pip install -e .
+        ```
+        
+        ```
+        single-cell tools\
+          STAR_aligner
+          read_adata
+        ```
+        
+        Questions? Contact <a href="mvinyard@broadinstitute.org">Michael Vinyard</a>
         
 Platform: UNKNOWN
 Classifier: Development Status :: 2 - Pre-Alpha
