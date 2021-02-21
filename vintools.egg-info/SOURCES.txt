@@ -10,8 +10,12 @@ vintools.egg-info/top_level.txt
 vintools/machine_learning/__init__.py
 vintools/math/__init__.py
 vintools/plotting/__init__.py
+vintools/plotting/_fig_presets.py
 vintools/simulation/__init__.py
-vintools/single_cell/_STAR_aligner.py
 vintools/single_cell/__init__.py
+vintools/single_cell/_parse_counts.py
+vintools/single_cell/_sc_preprocessing.py
+vintools/testing_and_development/_STAR_aligner.py
 vintools/testing_and_development/__init__.py
 vintools/utilities/__init__.py
+vintools/utilities/_vcf_tools.py

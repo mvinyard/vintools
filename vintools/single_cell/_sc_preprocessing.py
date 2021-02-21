@@ -34,6 +34,8 @@ def _add_barcode_tags(bcs, untagged_bam, out):
     untagged_bam = pysam.AlignmentFile(untagged_bam, "rb")
     tagged_bam = pysam.AlignmentFile(out, "wb", template=untagged_bam)
     
+    barcoded_read_count = 0
+    start_time = time.time()
     for i, read in enumerate(untagged_bam.fetch(until_eof=True)):
         
         CB_, UB_ = get_CB_UB(read)
@@ -44,7 +46,19 @@ def _add_barcode_tags(bcs, untagged_bam, out):
             tags.append(("UB", UB_, "Z"))
             read.set_tags(tags)
             tagged_bam.write(read)
-
+            
+            barcoded_read_count += 1
+            
+        if i % 10000000 == 0:
+            if i !=0:
+                current_time = time.time()
+                elapsed_time = (current_time - start_time) / 60
+                percent_barcoded = (barcoded_read_count / i)*100
+                print("Number of reads processed:", i)
+                print("{:.2f}".format(elapsed_time), "minutes elapsed.")
+                print("Number of reads barcoded:", barcoded_read_count, "Percentage barcoded:", "{:.2f}".format(percent_barcoded), "%")
+            
+            
     untagged_bam.close()
     tagged_bam.close()
 
@@ -89,6 +103,7 @@ def _split_bam(barcodes, unsplit_bam, outdir):
                 if(CB_itr!=CB_hold or itr==0):
                     # close previous split file, only if not first read in file
                     if(itr!=0):
+                        print(CB_itr)
                         split_file.close()
                     CB_hold = CB_itr
                     itr+=1
