@@ -1,6 +1,6 @@
 # vintools
 
-![logo](https://github.com/mvinyard/vintools/imgs/logo.png)
+![logo](/imgs/logo.png)
 
 Michael Vinyard's utilities
 ---
