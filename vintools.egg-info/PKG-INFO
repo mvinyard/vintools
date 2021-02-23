@@ -6,7 +6,10 @@ Home-page: https://github.com/mvinyard/vintools
 Author: Michael E. Vinyard - Harvard University - Massachussetts General Hospital - Broad Institute of MIT and Harvard
 Author-email: mvinyard@broadinstitute.org
 License: MIT
-Description: #### vintools
+Description: # vintools
+        
+        ![logo](/imgs/logo.png)
+        
         Michael Vinyard's utilities
         ---
         
