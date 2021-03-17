@@ -11,6 +11,7 @@ vintools/machine_learning/__init__.py
 vintools/math/__init__.py
 vintools/plotting/__init__.py
 vintools/plotting/_fig_presets.py
+vintools/plotting/_make_data_gif.py
 vintools/simulation/__init__.py
 vintools/single_cell/__init__.py
 vintools/single_cell/_parse_counts.py
