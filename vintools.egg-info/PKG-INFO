@@ -1,42 +1,12 @@
 Metadata-Version: 2.1
 Name: vintools
-Version: 0.0.0
+Version: 0.0.2.3
 Summary: vintools: Michael Vinyard's utilities.
 Home-page: https://github.com/mvinyard/vintools
 Author: Michael E. Vinyard - Harvard University - Massachussetts General Hospital - Broad Institute of MIT and Harvard
 Author-email: mvinyard@broadinstitute.org
 License: MIT
-Description: # VinTools
-        
-        ![logo](/imgs/logo.png)
-        
-        
-        #### To install:
-        
-        ```
-        git clone https://github.com/mvinyard/vintools.git
-        
-        cd vintools
-        pip install -e .
-        ```
-        
-        #### An overview of VinTools modules:
-        
-        ```
-        vintools/
-            single-cell
-            machine-learning
-            math
-            simulation
-            plotting    
-            utilities
-            
-            testing_and_development
-        ```
-        
-        For specific tutorials and information, see the <a href="https://github.com/mvinyard/vintools/wiki">wiki</a>.
-        
-        Questions? Contact <a href="mvinyard@broadinstitute.org">Michael Vinyard</a>
+Description: # vintools
         
 Platform: UNKNOWN
 Classifier: Development Status :: 2 - Pre-Alpha
