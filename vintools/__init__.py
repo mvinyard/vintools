@@ -15,3 +15,4 @@ from . import simulation as sm
 from . import single_cell as sc
 from . import math as ma
 from . import testing_and_development as dev
+from . import data as data
