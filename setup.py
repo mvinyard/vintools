@@ -6,7 +6,7 @@ import sys
 
 setup(
     name='vintools',
-    version="0.0.3",
+    version="0.0.4",
     python_requires='>3.6.0',
     author='Michael E. Vinyard - Harvard University - Massachussetts General Hospital - Broad Institute of MIT and Harvard',
     author_email='mvinyard@broadinstitute.org',
@@ -28,6 +28,7 @@ setup(
     install_requires=[
         "anndata>=0.7.1",
         "scanpy>=1.4.3",
+	"scprep>=1.1.0",
         "torch>=1.1.0",
         "numpy>=1.19.2",
         "pandas>=1.1.2",
