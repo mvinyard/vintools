@@ -33,6 +33,5 @@ def _load_development_libraries():
     import time
     import scipy as sp
     from sklearn.decomposition import PCA
-    import vintools as v
     
-    return odeint, torch, np, pd, plt, nn, a, os, glob, time, optim, sp, PCA, v
+    return odeint, torch, np, pd, plt, nn, a, os, glob, time, optim, sp, PCA
