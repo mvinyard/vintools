@@ -17,9 +17,10 @@ vintools/machine_learning/__init__.py
 vintools/math/__init__.py
 vintools/plotting/README.md
 vintools/plotting/__init__.py
-vintools/plotting/_color_pallette_preset.py
-vintools/plotting/_fig_presets.py
-vintools/plotting/_make_data_gif.py
+vintools/plotting/color_palettes.py
+vintools/plotting/fig_presets.py
+vintools/plotting/make_data_gif.py
+vintools/plotting/share_seq_df_generation.py
 vintools/simulation/__init__.py
 vintools/single_cell/__init__.py
 vintools/single_cell/_parse_counts.py
@@ -31,3 +32,6 @@ vintools/utilities/INPROGRESS_loader.py
 vintools/utilities/README.md
 vintools/utilities/__init__.py
 vintools/utilities/_vcf_tools.py
+vintools/utilities/cell_complete_audio.py
+vintools/utilities/download_play_sound.py
+vintools/utilities/flatten_lists.py
