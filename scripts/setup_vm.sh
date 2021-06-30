@@ -14,4 +14,5 @@ conda install -c anaconda matplotlib -y
 conda install -c conda-forge port-for -y
 conda install -c conda-forge nb_conda_kernels -y
 
+# cleanup
 rm Anaconda3-2020.11-Linux-x86_64.sh 
