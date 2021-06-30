@@ -22,3 +22,6 @@ mkdir ref/hg38
 cd ~/software
 git clone https://github.com/mvinyard/vintools.git
 git clone https://github.com/mvinyard/vintools.wiki.git
+
+# clean up
+mv deploy_project_structure.sh scripts
