@@ -1,4 +1,4 @@
-def flatten_list_of_lists(_2d_list):
+def _flatten_list_of_lists(_2d_list):
     
     """Input a list of lists and output one single list"""
     

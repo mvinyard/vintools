@@ -12,7 +12,7 @@ class InvisibleAudio(Audio):
         audio = audio.replace('<audio', f'<audio onended="this.parentNode.removeChild(this)"')
         return f'<div style="display:none">{audio}</div>'
     
-def ipy_cell_complete_audio(download_destination="."):
+def _ipy_cell_complete_audio(download_destination="."):
     
     """Plays a sound when a jupyter cell completes."""
     
