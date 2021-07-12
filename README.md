@@ -1,4 +1,4 @@
-[<img src="https://i.imgur.com/BUH7Jqj.png" align="right" hspace="20"/>](https://github.com/mvinyard/vintools/)
+[<img src="https://i.imgur.com/le4ym8u.png" align="right" hspace="20"/>](https://github.com/mvinyard/vintools/)
 
 <p>&nbsp;</p>
 
