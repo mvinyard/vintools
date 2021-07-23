@@ -1,7 +1,5 @@
-LICENSE
 README.md
 setup.py
-imgs/logo.png
 vintools/__init__.py
 vintools.egg-info/PKG-INFO
 vintools.egg-info/SOURCES.txt
@@ -15,7 +13,6 @@ vintools/data/load_LARRY.py
 vintools/data/load_share_seq.py
 vintools/machine_learning/__init__.py
 vintools/math/__init__.py
-vintools/plotting/README.md
 vintools/plotting/__init__.py
 vintools/plotting/color_palettes.py
 vintools/plotting/fig_presets.py
@@ -29,9 +26,9 @@ vintools/testing_and_development/_STAR_aligner.py
 vintools/testing_and_development/__init__.py
 vintools/testing_and_development/_dev_libraries.py
 vintools/utilities/INPROGRESS_loader.py
-vintools/utilities/README.md
 vintools/utilities/__init__.py
+vintools/utilities/_cell_complete_audio.py
+vintools/utilities/_download_play_sound.py
+vintools/utilities/_flatten_lists.py
+vintools/utilities/_send_email.py
 vintools/utilities/_vcf_tools.py
-vintools/utilities/cell_complete_audio.py
-vintools/utilities/download_play_sound.py
-vintools/utilities/flatten_lists.py
