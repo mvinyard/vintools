@@ -1,6 +1,7 @@
 # requirements.txt
 
 vintools
+ipython>=7.25
 pandas==1.1.3
 requests==2.24.0
 scrapy==2.4.0
