@@ -14,6 +14,7 @@ vintools/data/load_share_seq.py
 vintools/machine_learning/__init__.py
 vintools/math/__init__.py
 vintools/plotting/__init__.py
+vintools/plotting/_histogram.py
 vintools/plotting/color_palettes.py
 vintools/plotting/fig_presets.py
 vintools/plotting/make_data_gif.py
@@ -30,5 +31,8 @@ vintools/utilities/__init__.py
 vintools/utilities/_cell_complete_audio.py
 vintools/utilities/_download_play_sound.py
 vintools/utilities/_flatten_lists.py
+vintools/utilities/_pystrings.py
+vintools/utilities/_search_and_destroy.py
 vintools/utilities/_send_email.py
 vintools/utilities/_vcf_tools.py
+vintools/utilities/_zero_centered_random.py
