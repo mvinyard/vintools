@@ -1,4 +1,4 @@
-\name: Search and Destory __pycache__
+name: Search and Destory __pycache__
 
 # Controls when the workflow will run
 on:
