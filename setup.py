@@ -26,6 +26,7 @@ setup(
 	'vintools.testing_and_development',
     ],
     install_requires=[
+	"matplotlib>=3.4",
         "anndata>=0.7.1",
         "scanpy>=1.4.3",
 	"scprep>=1.1.0",
