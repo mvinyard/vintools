@@ -25,6 +25,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Execute vintools findNdestroy_pycache
-        run: python -c "python import vintools as v; v.ut.findNdestroy_pycache()"
+        run: python -c 'import math; print(math.factorial(5))'
+#         run: python -c "python import vintools as v; v.ut.findNdestroy_pycache()"
           
           
