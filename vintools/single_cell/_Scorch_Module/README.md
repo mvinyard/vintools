@@ -6,7 +6,7 @@ Annotation of cell types working from a clustering solution can be difficult if 
 
 The Scorch class uses the recipe from Scanpy and pytorch-enabled Harmony implementation to quickly preprocess and integrate a directory of `.h5` 10x output matrices. 
 
-***Note on runtime:*** ~22k cells across four samples took about 2.3 mins to preprocess, integrate, and visualize. The full notebook and outputs is [here](https://github.com/mvinyard/vintools/blob/main/notebooks/Scorch_example_4xBrain_10x.ipynb). 
+***Note on runtime:*** ~22k cells across four samples took about 2.3 mins to preprocess, integrate, and visualize. The full notebook and outputs is [here](https://github.com/mvinyard/vintools/blob/main/notebooks/Scorch_example_4xBrain_10x.ipynb). This is actually sort of a bad example; each brain overlays quite well with minimal sample-to-sample difference. I'll eventually find a better native example. 
 
 ## Basic Usage:
 
