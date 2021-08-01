@@ -2,7 +2,7 @@
 
 **Main use case**: multiple 10x RNA-seq samples with `.h5` inputs. 
 
-Annotation of cell types working from a clustering solution can be difficult if the clustering solution is not ideal. This problem is amplified when using data integrated and clustered across samples and/or batches. To make this easier, I wrapped some key preprocessing functions from [***Scanpy***](https://scanpy.readthedocs.io/en/stable/) and functions from a [**pytorch implementation**](https://github.com/lilab-bcb/harmony-pytorch) of [***Harmony***](https://github.com/immunogenomics/harmony) ([Korsunsky, et al., *Nat. Methods* **2019**])(https://www.nature.com/articles/s41592-019-0619-0).
+Annotation of cell types working from a clustering solution can be difficult if the clustering solution is not ideal. This problem is amplified when using data integrated and clustered across samples and/or batches. To make this easier, I wrapped some key preprocessing functions from [***Scanpy***](https://scanpy.readthedocs.io/en/stable/) and functions from a [**pytorch implementation**](https://github.com/lilab-bcb/harmony-pytorch) of [***Harmony***](https://github.com/immunogenomics/harmony) ([Korsunsky, et al., *Nat. Methods* **2019**](https://www.nature.com/articles/s41592-019-0619-0)).
 
 The Scorch class uses the recipe from Scanpy and pytorch-enabled Harmony implementation to quickly preprocess and integrate a directory of `.h5` 10x output matrices. 
 
