@@ -99,8 +99,8 @@ class Scorch:
         
         print(
             "n_Louvain_clusers: {}\nn_Leiden_clusters: {}".format(
-                self.adata.obs.louvain.astype(int).max(),
-                self.adata.obs.leiden.astype(int).max(),
+                self.adata.obs.louvain.astype(int).nunique(),
+                self.adata.obs.leiden.astype(int).nunique(),
             )
         )
 
@@ -170,6 +170,13 @@ class Scorch:
             marker_genes = self.marker_genes
             print("Using stored marker genes...")
         _scanpy_dotplots_GEX(self.adata, marker_genes, clustering_algorithm=clustering_algorith)
+        
+        print(
+            "n_Louvain_clusers: {}\nn_Leiden_clusters: {}".format(
+                self.adata.obs.louvain.astype(int).nunique(),
+                self.adata.obs.leiden.astype(int).nunique(),
+            )
+        )
         
         
     def check_time(self):
