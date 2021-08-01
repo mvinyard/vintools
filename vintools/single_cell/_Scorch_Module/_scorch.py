@@ -96,6 +96,13 @@ class Scorch:
             louvain_resolution=louvain_resolution,
             plot=plot,
         )
+        
+        print(
+            "n_Louvain_clusers: {}\nn_Leiden_clusters: {}".format(
+                self.adata.obs.louvain.astype(int).max(),
+                self.adata.obs.leiden.astype(int).max(),
+            )
+        )
 
     def harmonize(self, harmonize_on="X_pca", batch_key="sample"):
         _run_Harmony(self.adata, harmonize_on="X_pca", batch_key="sample")
