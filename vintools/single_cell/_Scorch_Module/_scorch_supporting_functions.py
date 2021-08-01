@@ -1,5 +1,6 @@
 
 from ...plotting import share_seq
+from ...plotting import vin_colors
 
 import os
 from glob import glob
@@ -182,7 +183,7 @@ def _quick_extend_color_palette(n_ids):
     extended_default = share_seq()["colors"].tolist()
     if n_ids > len(extended_default):
         for color in range(n_ids - len(extended_default)):
-            extended_default.append(np.tile(v.pl.vin_colors(separable=True), 3)[color])
+            extended_default.append(np.tile(vin_colors(separable=True), 3)[color])
 
         return extended_default
 
