@@ -14,13 +14,14 @@ vintools/data/load_share_seq.py
 vintools/machine_learning/__init__.py
 vintools/math/__init__.py
 vintools/plotting/__init__.py
-vintools/plotting/_histogram.py
 vintools/plotting/color_palettes.py
 vintools/plotting/fig_presets.py
 vintools/plotting/make_data_gif.py
 vintools/plotting/share_seq_df_generation.py
 vintools/simulation/__init__.py
 vintools/single_cell/__init__.py
+vintools/single_cell/_format_AnnData.py
+vintools/single_cell/_general_formatting_tools.py
 vintools/single_cell/_parse_counts.py
 vintools/single_cell/_sc_preprocessing.py
 vintools/testing_and_development/_STAR_aligner.py
@@ -35,4 +36,3 @@ vintools/utilities/_pystrings.py
 vintools/utilities/_search_and_destroy.py
 vintools/utilities/_send_email.py
 vintools/utilities/_vcf_tools.py
-vintools/utilities/_zero_centered_random.py

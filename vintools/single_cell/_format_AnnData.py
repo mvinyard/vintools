@@ -54,23 +54,23 @@ def _format_AnnData_mtx_as_numpy_array(adata):
                     print(term)
                     
                     
-    class _format_AnnData:
+class _format_AnnData:
 
-        """
-        Parameters:
-        -----------
-        adata
+    """
+    Parameters:
+    -----------
+    adata
 
-        Returns:
-        --------
-        None
-            AnnData object is modified in place.
-        """
+    Returns:
+    --------
+    None
+        AnnData object is modified in place.
+    """
 
-        def __init__(self, adata):
+    def __init__(self, adata):
 
-            self.adata = adata
+        self.adata = adata
 
-        def X_to_array(self):
+    def X_to_array(self):
 
-            _check_format_AnnData_mtx(self.adata)
+        _check_format_AnnData_mtx(self.adata)
