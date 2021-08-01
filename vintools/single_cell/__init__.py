@@ -13,4 +13,4 @@ from ._general_formatting_tools import _check_if_scipy_sparse_mtx as check_if_sc
 
 # single-cell AnnData formatting functions
 from ._format_AnnData import _format_AnnData as format_adata
-from ._scorch._scorch import Scorch
+from ._Scorch_Module._scorch import Scorch
