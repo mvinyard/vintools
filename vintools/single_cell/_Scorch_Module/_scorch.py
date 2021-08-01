@@ -157,12 +157,12 @@ class Scorch:
                                       legend_cols=legend_cols, 
                                       separate_colors=separate_colors)
 
-    def cluster_dotplot(self, marker_genes=None):
+    def cluster_dotplot(self, marker_genes=None, clustering_algorith="leiden"):
         
         if marker_genes is None:
             marker_genes = self.marker_genes
             print("Using stored marker genes...")
-        _scanpy_dotplots_GEX(self.adata, marker_genes, clustering_algorithm="leiden")
+        _scanpy_dotplots_GEX(self.adata, marker_genes, clustering_algorithm=clustering_algorith)
         
         
     def check_time(self):
