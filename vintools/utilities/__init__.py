@@ -9,3 +9,6 @@ from ._pystrings import _format_string_printing_font as format_pystring
 from ._search_and_destroy import _find_and_destroy_pycache as findNdestroy_pycache
 
 from ._pyGSUTILS_module._pyGSUTILS import _pyGSUTILS as pyGSUTILS
+from ._deinterleaf import _deinterleaf_fastq as deinterleaf_fastq
+from ._report_imports import _report_imports as imports
+from ._get_vintools_version import _get_vintools_version as version

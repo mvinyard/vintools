@@ -33,6 +33,9 @@ setup(
         "pandas>=1.1.2",
         "pysam>=0.16.0",
         "torchdiffeq>=0.2.1",
+	"harmony-pytorch>=0.1.6",
+	"psutil>=5.8.0",
+
     ],
     classifiers = [
         "Development Status :: 2 - Pre-Alpha",
