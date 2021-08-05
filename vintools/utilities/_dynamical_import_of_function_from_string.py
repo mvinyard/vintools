@@ -30,6 +30,11 @@ def _dynamical_import_of_function_from_string(package, module, function, functio
     package_module = ".".join([package, module])
 
     module = import_module(name=package_module)
-    function = getattr(module, function)(function_parameters)
-
+    
+    # some functions need parameters; others require not having parameters
+    try:
+        function = getattr(module, function)
+    except:
+        function = getattr(module, function)(function_parameters)
+        
     return function
