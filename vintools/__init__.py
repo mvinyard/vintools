@@ -8,11 +8,11 @@ __email__ = ', '.join([
 ])
 
 
-from . import plotting  as pl
-from . import utilities as ut
-from . import single_cell as sc
-from . import testing_and_development as dev
-from . import data
+from . import _plotting  as pl
+from . import _utilities as ut
+from . import _single_cell as sc
+from . import _testing_and_development as dev
+from . import _data
 
 # matplotlib defaults
 import matplotlib
