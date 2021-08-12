@@ -1,6 +1,6 @@
 
-from ...plotting import share_seq
-from ...plotting import vin_colors
+from ..._plotting import share_seq
+from ..._plotting import vin_colors
 
 import os
 from glob import glob
