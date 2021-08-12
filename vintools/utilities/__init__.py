@@ -13,3 +13,6 @@ from ._dynamical_import_of_function_from_string import _dynamical_import_of_func
 from ._deinterleaf import _deinterleaf_fastq as deinterleaf_fastq
 from ._report_imports import _report_imports as imports
 from ._get_vintools_version import _get_vintools_version as version
+
+from ._smooth_data import _partition as partition
+from ._smooth_data import _smooth as smooth

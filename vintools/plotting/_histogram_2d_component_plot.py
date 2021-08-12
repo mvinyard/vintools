@@ -1,13 +1,22 @@
 
 # package imports #
 # --------------- #
+# import matplotlib
+# import matplotlib.font_manager
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
 from matplotlib.colorbar import Colorbar
 
 # local imports #
 # ------------- #
-from ._delete_spines import _delete_spines
+from ._modify_ax_spines import _modify_ax_spines
+
+# # matplotlib presets #
+# # ------------------ #
+# font = {"size": 12}
+# matplotlib.rc(font)
+# matplotlib.rcParams["font.sans-serif"] = "Arial"
+# matplotlib.rcParams["font.family"] = "sans-serif"
 
 def _histogram_2d_component_plot(
     data,
@@ -16,6 +25,8 @@ def _histogram_2d_component_plot(
     histcolor="#63439C",
     histalpha=1,
     figsize=(7, 6),
+    title_fontsize=16, 
+    label_fontsize=14,
     suptitle=False,
     save_path=False,
 ):
@@ -73,9 +84,10 @@ def _histogram_2d_component_plot(
     histogram_2d.set_yticks([y_tick_min, y_tick_max])
     histogram_2d.yaxis.tick_right()
     y_component_histogram.set_yticks([])
-
+    
     for ax in [x_component_histogram, y_component_histogram, histogram_2d]:
-        _delete_spines(ax)
+        spines = _modify_ax_spines(ax)
+        spines.delete()
 
     hist2d_im = histogram_2d.imshow(data, cmap=cmap)
     colorbar_ax = fig.add_subplot(gridspec[1:, 2])
@@ -83,7 +95,7 @@ def _histogram_2d_component_plot(
     cb = Colorbar(ax=colorbar_ax, mappable=hist2d_im, ticklocation="right")
     cb.outline.set_visible(False)
     if suptitle:
-        plt.suptitle(suptitle, x=.55)
+        plt.suptitle(suptitle, fontsize=title_fontsize, x=.55)
     plt.tight_layout()
     plt.show()
     if save_path:
