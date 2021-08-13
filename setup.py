@@ -6,7 +6,7 @@ import sys
 
 setup(
     name='vintools',
-    version="0.0.45",
+    version="0.0.46",
     python_requires='>3.6.0',
     author='Michael E. Vinyard - Harvard University - Massachussetts General Hospital - Broad Institute of MIT and Harvard',
     author_email='mvinyard@broadinstitute.org',
@@ -16,12 +16,12 @@ setup(
     description="vintools: Michael Vinyard's utilities.",
     packages = [
         'vintools',
-	'vintools.data',
-        'vintools.plotting',
-        'vintools.utilities',
-	'vintools.tools',
-	'vintools.single_cell',
-	'vintools.testing_and_development',
+	'vintools._data',
+        'vintools._plotting',
+        'vintools._utilities',
+	'vintools._tools',
+	'vintools._single_cell',
+	'vintools._testing_and_development',
     ],
     install_requires=[
 	"matplotlib>=3.4",
