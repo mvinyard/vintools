@@ -16,3 +16,5 @@ from ._get_vintools_version import _get_vintools_version as version
 
 from ._smooth_data import _partition as partition
 from ._smooth_data import _smooth as smooth
+
+from ._flexible_mkdir import _flexible_mkdir as mkdir_flex

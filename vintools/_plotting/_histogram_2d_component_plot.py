@@ -97,6 +97,6 @@ def _histogram_2d_component_plot(
     if suptitle:
         plt.suptitle(suptitle, fontsize=title_fontsize, x=.55)
     plt.tight_layout()
-    plt.show()
     if save_path:
-        plt.savefig(save_path)
+        out = plt.savefig(save_path)
+    plt.show()
