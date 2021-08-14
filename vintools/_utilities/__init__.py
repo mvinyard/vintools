@@ -18,3 +18,6 @@ from ._smooth_data import _partition as partition
 from ._smooth_data import _smooth as smooth
 
 from ._flexible_mkdir import _flexible_mkdir as mkdir_flex
+
+
+from ._get_data_bounds import _get_data_bounds as get_data_bounds
