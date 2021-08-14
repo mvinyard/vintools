@@ -24,5 +24,5 @@ def _annotate_legend(ax,
         edgecolor="w",
         fontsize=fontsize,
         handletextpad=None,
-        loc=1,
+        loc=loc,
     )
