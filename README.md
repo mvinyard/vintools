@@ -2,7 +2,7 @@
 
 <p>&nbsp;</p>
 
-[<img src="https://i.imgur.com/KmAFUuy.png" width="250"  hspace="10"/>](https://github.com/mvinyard/vintools/wiki) [<img src="https://i.imgur.com/zMPwyI1.png" width="250"  hspace="10"/>](https://) [<img src="https://i.imgur.com/l9rBZ8v.png" width="250"  hspace="10"/>](https://github.com/mvinyard/vintools/tree/main/vintools)
+&emsp; &emsp;&emsp;&emsp; [<img src="https://i.imgur.com/KmAFUuy.png" width="175" hspace="25"/>](https://github.com/mvinyard/vintools/wiki) [<img src="https://i.imgur.com/zMPwyI1.png" width="175" hspace="25"/>](https://github.com/mvinyard/vintools/tree/main/vintools/_data) [<img src="https://i.imgur.com/l9rBZ8v.png" width="175" hspace="25"/>](https://github.com/mvinyard/vintools/tree/main/vintools)
 
 ### Install vintools
 To download this package from pypi:
