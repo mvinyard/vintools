@@ -24,3 +24,4 @@ from ._flexible_mkdir import _flexible_mkdir as mkdir_flex
 
 from ._time import _time as time
 from ._fetch_cpu_count import _fetch_cpu_count as fetch_n_cpus
+from ._use_n_cores import _use_n_cores as use_n_cores
