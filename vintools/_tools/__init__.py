@@ -7,3 +7,6 @@ __author__ = ', '.join([
 __email__ = ', '.join([
     'vinyard@g.harvard.edu',
 ])
+
+
+from ._cDNA_detector_wrapper._cDNA_detector import _cDNA_detector as cDNA_detector
