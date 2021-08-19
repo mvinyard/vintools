@@ -4,7 +4,7 @@
 
 Install [cDNA-detector](https://github.com/rheinbaylab/cDNA-detector) from the [Rheinbay Lab](https://www.massgeneral.org/cancer-center/clinical-trials-and-research/center-for-cancer-research/investigators/rheinbay-lab)
 
-Here, my script referemces the main python script in that directory:
+Here, my script references the main python script in that library:
 ```
 /home/mvinyard/software/cDNA-detector/cdna-detector.py
 ```
@@ -20,9 +20,9 @@ Assumes the following structure where only the path before what is shown in brac
 data_path = "/home/mvinyard/data/10x_samples/[SAMPLE/outs/possorted_bam.bam]"
 ```
 
-**Define output paths**:
+**Define output path**:
 
-Sample name does not need to be defined; this is done by the wrapper class when each sample is detected. 
+Only a single directory (or none if the working directory suits you) need be definied. Sample names do not need to be defined; this is done by the wrapper class when each sample is detected and outputs are stored separately. 
 ```python=
 outdir = "/path/to/cDNA_detector/outs/[SAMPLE]/"
 ```
