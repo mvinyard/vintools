@@ -6,7 +6,7 @@ import os
 
 # local imports #
 # ------------- #
-from ..._utilities._pystrings import _format_string_printing_font
+from ...._utilities._pystrings import _format_string_printing_font
 
 
 def _format_outdir(self, outdir):
