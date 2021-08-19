@@ -1,10 +1,12 @@
 ## Minimal cDNA-detector batching wrapper
 
+**cDNA-detector**: [preprint](https://www.biorxiv.org/content/10.1101/2021.08.11.455962v1.full) | [GitHub](https://github.com/rheinbaylab/cDNA-detector)
+
 ### Setup:
 
-Install [cDNA-detector](https://github.com/rheinbaylab/cDNA-detector) from the [Rheinbay Lab](https://www.massgeneral.org/cancer-center/clinical-trials-and-research/center-for-cancer-research/investigators/rheinbay-lab)
+Install [cDNA-detector](https://github.com/rheinbaylab/cDNA-detector) from the [Rheinbay Lab](https://www.massgeneral.org/cancer-center/clinical-trials-and-research/center-for-cancer-research/investigators/rheinbay-lab).
 
-Here, my script references the main python script in that library:
+I've cloned the cDNA-detector repository adjacent to repository from which I am executing the commands in this wrapper. Thus, this wrapper references the main python script in that library:
 ```
 /home/mvinyard/software/cDNA-detector/cdna-detector.py
 ```
