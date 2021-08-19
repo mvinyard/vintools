@@ -29,11 +29,13 @@ Only a single directory (or none if the working directory suits you) need be def
 outdir = "/path/to/cDNA_detector/outs/[SAMPLE]/"
 ```
 
-
+**Instantiate, run preflight**:
 ```python=
 cDNA = cDNA_detector()
 cDNA.preflight(data_path=data_path, outdir=outdir, gene_model="hg38")
 ```
+
+**View inputs and outputs**:
 
 After running the preflight setup, one can check the in and out paths as well as IDs for each sample:
 ```python=
