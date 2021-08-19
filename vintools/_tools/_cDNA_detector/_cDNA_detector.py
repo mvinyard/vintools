@@ -1,13 +1,13 @@
 
 # local imports #
 # ------------- #
+from ._supporting_functions._tabulate_results import _tabulate_results
 from ._supporting_functions._make_10x_SampleDict import _organize_10x_samples
 from ._supporting_functions._main_funcs import _detect, _view, _format_outdir
 
 from ..._utilities._fetch_cpu_count import _fetch_cpu_count
 from ..._utilities._fetch_cpu_count import _fetch_cpu_count
 from ..._utilities._pystrings import _format_string_printing_font
-
 
 class _cDNA_detector:
     def __init__(self, script=False, n_cores=False):
@@ -32,12 +32,23 @@ class _cDNA_detector:
     
     def view(self):
         
-        _view(self)
+        """
+        prints self.SampleDict contents in readable format. 
         
-        for [sample, [bam_in, out]] in self.SampleDict.items():
-            
-            print("Sample: {}\n{bam_in}\n{out}\n".format(_format_string_printing_font(sample, ['BOLD'])))
-            
+        Parameters:
+        -----------
+        None, self
+        
+        Returns:
+        --------
+        prints self.SampleDict contents in readable format. 
+        
+        Notes:
+        ------
+        
+        """
+        
+        _view(self)
         
     def detect(
         self,
@@ -75,3 +86,9 @@ class _cDNA_detector:
                 cDNA_detector_outdir_sample=out,
                 dry_run=dry_run,
             )
+            
+    def tabulate_results(self):
+
+        """Tabulate and plot results."""
+
+        self.results = _tabulate_results(self.outdir)

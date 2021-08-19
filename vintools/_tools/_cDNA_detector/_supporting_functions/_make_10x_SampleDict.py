@@ -4,6 +4,10 @@
 import glob
 import os
 
+# local imports #
+# ------------- #
+from ...._utilities._flexible_mkdir import _flexible_mkdir
+
 def _get_10x_sample_name(path):
 
     """"""
