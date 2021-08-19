@@ -35,7 +35,26 @@ cDNA = cDNA_detector()
 cDNA.preflight(data_path=data_path, outdir=outdir, gene_model="hg38")
 ```
 
-After running the preflight setup, one can check the in and out paths of their 
+After running the preflight setup, one can check the in and out paths as well as IDs for each sample:
+```python=
+cDNA.SampleDict()
+```
+```
+{'Sample_1': ['/path/to/data/Sample_1/outs/possorted_bam.bam',
+  '/home/mvinyard/results/cDNA-detector/Sample_1'],
+ 'Sample_2': ['/path/to/data/Sample_2/outs/possorted_bam.bam',
+  '/home/mvinyard/results/cDNA-detector/Sample_2'],
+ 'Sample_3': ['/path/to/data/Sample_3/outs/possorted_bam.bam',
+  '/home/mvinyard/results/cDNA-detector/Sample_3'],
+ 'Sample_4': ['/path/to/data/Sample_4/outs/possorted_bam.bam',
+  '/home/mvinyard/results/cDNA-detector/Sample_4'],
+              .
+              .
+              .
+ 'Sample_N': ['/path/to/data/Sample_N/outs/possorted_bam.bam',
+  '/home/mvinyard/results/cDNA-detector/Sample_N']}
+
+```
 
 **Finally, Run the `cDNA-detector` Module**:
 ```
