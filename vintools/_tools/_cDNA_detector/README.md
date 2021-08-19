@@ -68,6 +68,10 @@ Sample_N:
 cDNA.detect()
 ```
 
+**The results can be loaded and parsed using the following function**:
+```
+cDNA.tabulate_results()
+```
 
 ### Notes:
 - other modules of cDNA-detector, namely `prepare` and `clean` have not yet been implemented in this wrapper. 
