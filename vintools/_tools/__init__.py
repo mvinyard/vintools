@@ -9,4 +9,4 @@ __email__ = ', '.join([
 ])
 
 
-from ._cDNA_detector_wrapper._cDNA_detector import _cDNA_detector as cDNA_detector
+from ._cDNA_detector._cDNA_detector import _cDNA_detector as cDNA_detector
