@@ -10,6 +10,7 @@ from matplotlib.colorbar import Colorbar
 # local imports #
 # ------------- #
 from ._modify_ax_spines import _modify_ax_spines
+from ._set_minimal_ticks import _set_minimal_ticks
 
 # # matplotlib presets #
 # # ------------------ #
@@ -53,8 +54,8 @@ def _histogram_2d_component_plot(
         color=histcolor,
         alpha=histalpha,
     )
-
-    x_component_histogram.set_xticks([])
+    x_component_histogram.grid(True)
+#     x_component_histogram.set_xticks([])
 
     y_component_histogram = fig.add_subplot(gridspec[1, 0])
     y_component_bins = y_component_histogram.hist(
@@ -64,6 +65,7 @@ def _histogram_2d_component_plot(
         color=histcolor,
         alpha=histalpha,
     )
+    y_component_histogram.grid(True)
 
     y_component_histogram.set_xlim(y_component_histogram.get_xlim()[::-1])
 
@@ -83,11 +85,20 @@ def _histogram_2d_component_plot(
 
     histogram_2d.set_yticks([y_tick_min, y_tick_max])
     histogram_2d.yaxis.tick_right()
-    y_component_histogram.set_yticks([])
+#     y_component_histogram.set_yticks([])
+
+    hist2d_spines = _modify_ax_spines(histogram_2d)
+    hist2d_spines.set_color("grey")
+#     spines.delete(select_spines=["top", "right"])
+    hist2d_spines.set_position(position_type="axes", amount=-0.05)
+    _set_minimal_ticks(histogram_2d, x_component, y_component)
     
-    for ax in [x_component_histogram, y_component_histogram, histogram_2d]:
-        spines = _modify_ax_spines(ax)
-        spines.delete()
+#     for ax in [x_component_histogram, y_component_histogram, histogram_2d]:
+#         spines = _modify_ax_spines(ax)
+#         spines.delete()
+        
+    
+    
 
     hist2d_im = histogram_2d.imshow(data, cmap=cmap)
     colorbar_ax = fig.add_subplot(gridspec[1:, 2])
