@@ -22,6 +22,10 @@ from ._flexible_mkdir import _flexible_mkdir as mkdir_flex
 
 # from ._get_data_bounds import _get_data_bounds as get_data_bounds
 
-from ._time import _time as time
+# from ._time import _time as time
 from ._fetch_cpu_count import _fetch_cpu_count as fetch_n_cpus
 from ._use_n_cores import _use_n_cores as use_n_cores
+
+
+from ._torch_device import _set_device as set_device
+from ._torch_device import _torch_device as torch_device
