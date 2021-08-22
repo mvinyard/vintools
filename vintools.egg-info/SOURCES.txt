@@ -30,12 +30,15 @@ vintools/_utilities/_cell_complete_audio.py
 vintools/_utilities/_deinterleaf.py
 vintools/_utilities/_download_play_sound.py
 vintools/_utilities/_dynamical_import_of_function_from_string.py
+vintools/_utilities/_fetch_cpu_count.py
 vintools/_utilities/_flatten_lists.py
 vintools/_utilities/_flexible_mkdir.py
+vintools/_utilities/_get_data_bounds.py
 vintools/_utilities/_get_vintools_version.py
 vintools/_utilities/_pystrings.py
 vintools/_utilities/_report_imports.py
 vintools/_utilities/_search_and_destroy.py
 vintools/_utilities/_send_email.py
 vintools/_utilities/_smooth_data.py
+vintools/_utilities/_use_n_cores.py
 vintools/_utilities/_vcf_tools.py

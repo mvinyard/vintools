@@ -20,7 +20,7 @@ from ._smooth_data import _smooth as smooth
 from ._flexible_mkdir import _flexible_mkdir as mkdir_flex
 
 
-# from ._get_data_bounds import _get_data_bounds as get_data_bounds
+from ._get_data_bounds import _get_data_bounds as get_data_bounds
 
 # from ._time import _time as time
 from ._fetch_cpu_count import _fetch_cpu_count as fetch_n_cpus
