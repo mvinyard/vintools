@@ -36,17 +36,18 @@ There are two mdoes of making this conversion using `vintools`:
     MarkdownTable.view()
     ```
     
-    >|sample|index|metadata|
-    |--|--|--|
-    |sample_hcz_105|SI-NA-D1|control|
-    |sample_hcz_106|SI-NA-A2|control|
-    |sample_hcz_107|SI-NA-D2|control|
-    |sample_hcz_108|SI-NA-B2|control|
-    |sample_hcz_109|SI-NA-C3|exp|
-    |sample_hcz_110|SI-NA-B3|exp|
-    |sample_hcz_111|SI-NA-C3|exp|
-    |sample_hcz_112|SI-NA-D3|exp|
-    
+    ```
+    [OUT]:  |sample|index|metadata|
+            |--|--|--|
+            |sample_hcz_105|SI-NA-D1|control|
+            |sample_hcz_106|SI-NA-A2|control|
+            |sample_hcz_107|SI-NA-D2|control|
+            |sample_hcz_108|SI-NA-B2|control|
+            |sample_hcz_109|SI-NA-C3|exp|
+            |sample_hcz_110|SI-NA-B3|exp|
+            |sample_hcz_111|SI-NA-C3|exp|
+            |sample_hcz_112|SI-NA-D3|exp|
+    ```
     
     ```python
     MarkdownTable.write(outfile)
