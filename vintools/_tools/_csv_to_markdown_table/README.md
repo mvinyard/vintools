@@ -1,5 +1,11 @@
 # CSV to markdown table
 
+There is a **built-in pandas function**:
+```python
+[pandas.DataFrame.to_markdown()]()
+```
+
+
 #### .csv file input:
 ```
 sample,index,metadata
