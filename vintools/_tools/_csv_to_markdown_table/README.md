@@ -20,18 +20,18 @@ There are two mdoes of making this conversion using `vintools`:
 1. Instantiate a class that allows you to view the formatted table. Most useful for when working in a notebook:
     
     
-    ```python=
+    ```python
     import vintools as v
     
     MarkdownTable = v.tl.create_md_table()
     ```
     
-    ```python=
+    ```python
     MarkdownTable.read_df(infile)
     MarkdownTable.df.head()
     ```
     
-    ```python=
+    ```python
     MarkdownTable.make_table()
     MarkdownTable.view()
     ```
@@ -48,7 +48,7 @@ There are two mdoes of making this conversion using `vintools`:
     |sample_hcz_112|SI-NA-D3|exp|
     
     
-    ```python=
+    ```python
     MarkdownTable.write(outfile)
     ```
     ><input>.csv converted to markdown table and saved: <output>.md
@@ -56,7 +56,7 @@ There are two mdoes of making this conversion using `vintools`:
 
 2. Run a one-line function: 
 
-    ```python=
+    ```python
     v.tl.quicktable(infile, outfile="table_quick.md")
     ```
     ><input>.csv converted to markdown table and saved: <output>.md
