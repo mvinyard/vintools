@@ -1,9 +1,6 @@
 # CSV to markdown table
 
-There is a **built-in pandas function**:
-```python
-[pandas.DataFrame.to_markdown()]()
-```
+There is a **built-in pandas function**, [`pandas.DataFrame.to_markdown()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_markdown.html), however I don't find it very friendly or transparent for my use case. Perhaps someone else has had a better experience using it - I'd be happy to learn more! 
 
 
 #### .csv file input:
