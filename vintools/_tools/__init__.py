@@ -10,3 +10,6 @@ __email__ = ', '.join([
 
 
 from ._cDNA_detector._cDNA_detector import _cDNA_detector as cDNA_detector
+
+from ._csv_to_markdown_table._csv_to_markdown_table import create_md_table
+from ._csv_to_markdown_table._csv_to_markdown_table import quicktable
