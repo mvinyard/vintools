@@ -2,7 +2,7 @@
 # package imports #
 # --------------- #
 import os
-
+import glob
 
 # local imports #
 # ------------- #
@@ -49,3 +49,23 @@ def _detect(
         print(cDNA_detector_detect_command)
     else:
         os.system(cDNA_detector_detect_command)
+        
+def _prepend_gene_model(prepare_outdir):
+    
+    """"""
+    
+    gene_model = glob.glob(prepare_outdir + "*.saf")[0]
+    
+    return gene_model
+
+def _prepare(script, ref_10x, outdir):
+    
+    """"""        
+
+    annotations=os.path.join(ref_10x, "genes/genes.gtf")
+    genome=os.path.join(ref_10x_10x, "fasta/genome.fa")
+    
+    executable = "{} prepare --annotation {} --genome {} --output_dir {}".format(script, annotations, genome, outdir)
+    os.system(executable)
+    
+    _prepend_gene_model(prepare_outdir)

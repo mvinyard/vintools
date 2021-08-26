@@ -1,25 +1,45 @@
 
+# package imports #
+# --------------- #
+import os
+
 # local imports #
 # ------------- #
 from ._supporting_functions._tabulate_results import _tabulate_results
 from ._supporting_functions._make_10x_SampleDict import _organize_10x_samples
-from ._supporting_functions._main_funcs import _detect, _view, _format_outdir
+from ._supporting_functions._main_funcs import _detect, _view, _format_outdir, _prepend_gene_model, _prepare
 
 from ..._utilities._fetch_cpu_count import _fetch_cpu_count
 from ..._utilities._fetch_cpu_count import _fetch_cpu_count
 from ..._utilities._pystrings import _format_string_printing_font
+from ..._utilities._clone_GitHub_repo import _clone_GitHub_repo
 
 class _cDNA_detector:
     def __init__(self, script=False, n_cores=False):
 
         """"""
+        
+        print(os.getcwd())
+        print(self.__path__)
 
-        if not script:
-            self.script = "/home/mvinyard/software/cDNA-detector/cdna-detector.py"
-        if not n_cores:
-            self.n_cores = _fetch_cpu_count()
+#         if not script:
+#             self.script = "../../../../cDNA-detector/cdna-detector.py" # navigates out of vintools into the adjacent repo
+#             if not os.path.exists(self.script):
+#                 print("cDNA-detector repository not found... cloning locally now.")
+#                 _clone_GitHub_repo(repository="https://github.com/rheinbaylab/cDNA-detector.git",
+#                                    destination="../../../../cDNA-detector")
+#         if not n_cores:
+#             self.n_cores = _fetch_cpu_count()
+            
+            
+    def prepare(self):
+    
+        """"""
+    
+        self.gene_model = _prepend_gene_model(OUTDIR)
+        _prepare(script, ref_10x, outdir=os.path.dirname(self.gene_model))
 
-    def preflight(self, data_path, gene_model, outdir=False):
+    def detect_preflight(self, data_path, gene_model, outdir=False):
 
         """"""
 
