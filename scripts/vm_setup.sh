@@ -36,3 +36,13 @@ conda install -c conda-forge nb_conda_kernels -y
 # cleanup
 rm Anaconda3-2021.05-Linux-x86_64.sh # updated June 29, 2021
 mv vm_setup.sh scripts
+
+
+# -----------------------------
+# Swap Space
+# -----------------------------
+sudo fallocate -l4G /swapfile
+sudo chmod 700 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab
