@@ -13,7 +13,7 @@ setup(
     url = 'https://github.com/mvinyard/vintools',
     long_description = open("README.md", encoding="utf-8").read(),
     long_description_content_type = 'text/markdown',
-    description="vintools: Michael Vinyard's utilities.",
+    description="vintools - Michael Vinyard's utilities.",
     packages = [
         'vintools',
 	'vintools._data',

@@ -27,6 +27,7 @@ vintools/_tools/__init__.py
 vintools/_utilities/INPROGRESS_loader.py
 vintools/_utilities/__init__.py
 vintools/_utilities/_cell_complete_audio.py
+vintools/_utilities/_clone_GitHub_repo.py
 vintools/_utilities/_deinterleaf.py
 vintools/_utilities/_download_play_sound.py
 vintools/_utilities/_dynamical_import_of_function_from_string.py
