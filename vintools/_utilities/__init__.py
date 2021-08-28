@@ -32,3 +32,4 @@ from ._torch_device import _torch_device as torch_device
 
 
 from ._clone_GitHub_repo import _clone_GitHub_repo as git_clone
+from ._get_pypi_package_loc import _get_pypi_package_loc as which
