@@ -1,7 +1,11 @@
 Metadata-Version: 2.1
 Name: vintools
 Version: 0.0.52
+<<<<<<< HEAD
+Summary: vintools: Michael Vinyard's utilities.
+=======
 Summary: vintools - Michael Vinyard's utilities.
+>>>>>>> 782a3784515e1aa6d050afa3cb6e7bf62ddec220
 Home-page: https://github.com/mvinyard/vintools
 Author: Michael E. Vinyard - Harvard University - Massachussetts General Hospital - Broad Institute of MIT and Harvard
 Author-email: mvinyard@broadinstitute.org
