@@ -40,5 +40,6 @@ vintools/_utilities/_report_imports.py
 vintools/_utilities/_search_and_destroy.py
 vintools/_utilities/_send_email.py
 vintools/_utilities/_smooth_data.py
+vintools/_utilities/_torch_device.py
 vintools/_utilities/_use_n_cores.py
 vintools/_utilities/_vcf_tools.py
