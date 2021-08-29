@@ -7,12 +7,14 @@ library(DESeq2)
 args = commandArgs(trailingOnly=TRUE)
 outsdir = args[1] # "./"
 run_name = args[2] # "something"
+data_path = args[3] # './tmp/gex_counts.csv'
+meta_path = args[4] # './tmp/gex_meta.csv'
 
 print(c(outsdir, run_name))
 
 # load data
-countData <- read.csv('./tmp/gex_counts.csv', header = TRUE, sep = ",")
-metaData <- read.csv('./tmp/gex_meta.csv', header=TRUE, sep=",")
+countData <- read.csv(data_path, header = TRUE, sep = ",")
+metaData <- read.csv(meta_path, header=TRUE, sep=",")
 DESeq2_Data <- DESeqDataSetFromMatrix(countData=countData,
                                       colData=metaData,
                                       design=~condition, tidy = TRUE)
