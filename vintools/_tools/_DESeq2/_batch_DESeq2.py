@@ -48,7 +48,8 @@ def _prep_DESeq2_input_data(dfe, df_meta, n_cancer_samples, tmp_run_dir):
 
     df_.to_csv(path_data)
     dfm_.to_csv(path_meta, index_label=False)
-
+    
+    return path_data, path_meta
 
 def _run_DESeq2(
     dfe, df_meta, n_cancer_samples, outs_dir="./", run_name="testRun"
@@ -63,9 +64,9 @@ def _run_DESeq2(
     
     _flexible_mkdir(outs_dir)
     _flexible_mkdir(tmp_run_dir)
-    _prep_DESeq2_input_data(dfe, df_meta, n_cancer_samples, tmp_run_dir)
+    path_data, path_meta = _prep_DESeq2_input_data(dfe, df_meta, n_cancer_samples, tmp_run_dir)
 
-    executable = " ".join(["Rscript", path, outs_dir, run_name])
+    executable = " ".join(["Rscript", path, outs_dir, run_name, path_data, path_meta])
     print(executable)
     os.system(executable)
     
