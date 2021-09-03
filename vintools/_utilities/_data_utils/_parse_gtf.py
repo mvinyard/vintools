@@ -1,6 +1,6 @@
 
 import time
-from ._pystrings import _format_string_printing_font
+from .._ux_utils._pystrings import _format_string_printing_font
 
 def _note_header_lines(gtf, line, header_key="header"):
 

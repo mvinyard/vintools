@@ -6,9 +6,9 @@ import glob
 
 # local imports #
 # ------------- #
-from ...._utilities._pystrings import _format_string_printing_font
-from ...._utilities._clone_GitHub_repo import _clone_GitHub_repo
-from ...._utilities._flexible_mkdir import _flexible_mkdir
+from ...._utilities._ux_utils._pystrings import _format_string_printing_font
+from ...._utilities._system_utils._clone_GitHub_repo import _clone_GitHub_repo
+from ...._utilities._system_utils._flexible_mkdir import _flexible_mkdir
 
 from ._make_10x_SampleDict import _add_cleaned_outpath_to_10x_SampleDict, _find_orphaned_samples
 
