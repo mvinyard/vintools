@@ -10,9 +10,9 @@ from ._supporting_functions._make_10x_SampleDict import _organize_10x_samples, _
 from ._supporting_functions._view import _view
 from ._supporting_functions._main_funcs import _detect, _format_outdir, _prepend_gene_model, _prepare, _setup_cDNA_detector, _bam2fastq_10x, _run_make_clean_fastq_batch, _download_bam2fastq_10x_binary, _clean_bam_batch, _run_clean_preflight
 
-from ..._utilities._fetch_cpu_count import _fetch_cpu_count
-from ..._utilities._pystrings import _format_string_printing_font
-from ..._utilities._get_pypi_package_loc import _get_pypi_package_loc
+from ..._utilities._system_utils._fetch_cpu_count import _fetch_cpu_count
+from ..._utilities._ux_utils._pystrings import _format_string_printing_font
+from ..._utilities._system_utils._get_pypi_package_loc import _get_pypi_package_loc
 
 
 class _cDNA_detector:
