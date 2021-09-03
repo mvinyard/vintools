@@ -1,7 +1,7 @@
 # gsutil_funcs.py
 import subprocess
 import os, glob
-from .._pystrings import _format_string_printing_font
+from ..._ux_utils._pystrings import _format_string_printing_font
 
 def _init_funcs():
 
