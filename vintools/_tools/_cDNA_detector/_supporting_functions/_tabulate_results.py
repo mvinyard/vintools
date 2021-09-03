@@ -2,7 +2,7 @@
 from ...._plotting._annotate_legend import _annotate_legend
 from ...._plotting.color_palettes import vin_colors
 from ...._plotting._modify_ax_spines import _modify_ax_spines
-from ...._utilities._pystrings import _format_string_printing_font
+from ...._utilities._ux_utils._pystrings import _format_string_printing_font
 
 from matplotlib.gridspec import GridSpec
 import matplotlib.pyplot as plt

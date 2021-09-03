@@ -6,7 +6,7 @@ import os
 
 # local imports #
 # ------------- #
-from ...._utilities._flexible_mkdir import _flexible_mkdir
+from ...._utilities._system_utils._flexible_mkdir import _flexible_mkdir
 from ._view import _view
 
 def _get_10x_sample_name(path):
