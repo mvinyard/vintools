@@ -1,4 +1,7 @@
 
+import time
+from ._pystrings import _format_string_printing_font
+
 def _note_header_lines(gtf, line, header_key="header"):
 
     """
@@ -22,7 +25,7 @@ def _note_header_lines(gtf, line, header_key="header"):
     ------
 
     """
-
+    
     return gtf[header_key].append(line.strip("\n"))
 
 
@@ -72,7 +75,7 @@ def _get_gene_annotation(splitline):
     return gene_id, gene_name, gene_type
 
 
-def _parse_gtf_as_dictionary(gtf_file_path, feature="gene"):
+def _parse_gtf_as_dictionary(gtf_file_path, feature="gene", header_key="header", silent=False):
 
     """
 
@@ -94,25 +97,36 @@ def _parse_gtf_as_dictionary(gtf_file_path, feature="gene"):
     -----_
     (1)  The only feature implemeted so far is 'gene'
     """
-
+    
+    begin = time.time()
+    
     gtf_dict = {}
+    gtf_dict[header_key] = []
+    
     with open(gtf_file_path) as file:
         for n, line in enumerate(file):
             if line.startswith("##"):
-                _note_header_lines(gtf_dict, line)
+                _note_header_lines(gtf_dict, line, header_key)
             else:
                 splitline = line.split("\t")
                 chromosome = splitline[0]
 
-            if chromosome not in gtf_dict.keys():
-                gtf[chromosome] = {}
-            if splitline[2] == feature:
-                gene_id, gene_name, gene_type = _get_gene_annotation(splitline)
-                gtf[chromosome][gene_name] = {}
-                gtf[chromosome][gene_name]["gene_id"] = gene_id
-                gtf[chromosome][gene_name]["lower_bound"] = splitline[3]
-                gtf[chromosome][gene_name]["upper_bound"] = splitline[4]
-                gtf[chromosome][gene_name]["strand"] = splitline[6]
-                gtf[chromosome][gene_name]["gene_type"] = gene_type
-
+                if chromosome not in gtf_dict.keys():
+                    gtf_dict[chromosome] = {}
+                if splitline[2] == feature:
+                    gene_id, gene_name, gene_type = _get_gene_annotation(splitline)
+                    gtf_dict[chromosome][gene_name] = {}
+                    gtf_dict[chromosome][gene_name]["gene_id"] = gene_id
+                    gtf_dict[chromosome][gene_name]["lower_bound"] = splitline[3]
+                    gtf_dict[chromosome][gene_name]["upper_bound"] = splitline[4]
+                    gtf_dict[chromosome][gene_name]["strand"] = splitline[6]
+                    gtf_dict[chromosome][gene_name]["gene_type"] = gene_type
+                    
+    end = time.time()                        
+    
+    load_time = str(round((end-begin), 2))
+    
+    if not silent:
+        print("GTF loaded in {} seconds.".format(_format_string_printing_font(load_time, ['BOLD','RED'])))
+    
     return gtf_dict
