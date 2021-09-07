@@ -1,4 +1,4 @@
-from ._pystrings import _format_string_printing_font as format_pystring
+from .._ux_utils._pystrings import _format_string_printing_font as format_pystring
 import numpy as np
 import os, shutil
 

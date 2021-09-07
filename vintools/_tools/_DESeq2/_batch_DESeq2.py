@@ -3,8 +3,8 @@ import numpy as np
 import string
 import os
 
-from ..._utilities._flexible_mkdir import _flexible_mkdir
-from ..._utilities._get_pypi_package_loc import _get_pypi_package_loc
+from ..._utilities._system_utils._flexible_mkdir import _flexible_mkdir
+from ..._utilities._system_utils._get_pypi_package_loc import _get_pypi_package_loc
 
 def _choose_n_cancer_samples(df_meta, n_samples):
 

@@ -1,74 +1,153 @@
-## cDNA-detector batch-mode wrapper
+# cDNA-detector batch-mode wrapper
 
-**cDNA-detector**: [preprint](https://www.biorxiv.org/content/10.1101/2021.08.11.455962v1.full) | [GitHub](https://github.com/rheinbaylab/cDNA-detector)
+**cDNA-detector**: [biorXiv preprint](https://www.biorxiv.org/content/10.1101/2021.08.11.455962v1.full) | [GitHub](https://github.com/rheinbaylab/cDNA-detector) | [Rheinbay Lab](https://www.massgeneral.org/cancer-center/clinical-trials-and-research/center-for-cancer-research/investigators/rheinbay-lab)
 
-### Setup:
+## Setup:
 
-Install [cDNA-detector](https://github.com/rheinbaylab/cDNA-detector) from the [Rheinbay Lab](https://www.massgeneral.org/cancer-center/clinical-trials-and-research/center-for-cancer-research/investigators/rheinbay-lab). Instructions for installation are in the README. 
+While there are instructions for installation and setup in the README for [cDNA-detector](https://github.com/rheinbaylab/cDNA-detector), you should simply be able to instantiate the class from `vintools` as follows, to get started:
+```python
+cDNA = v.tl.cDNA_detector()
+```
+>cDNA-detector repository not found... cloning locally now.
+cDNA detector package and dependencies installed!
 
-- *Note*: I've cloned the cDNA-detector repository adjacent to repository from which I am executing the commands in this wrapper. Thus, this wrapper references the main python script in that library: `/home/mvinyard/software/cDNA-detector/cdna-detector.py`
+- *Note*: the `__init__()` function of this class clones the cDNA-detector repository adjacent to the repository from which I am executing the commands in this wrapper. Thus, this wrapper references the main python script in that library: `/home/mvinyard/software/cDNA-detector/cdna-detector.py`
 
 
-### Usage:
+## Usage:
 
+As detailed in the [**cDNA-detector README**](https://github.com/rheinbaylab/cDNA-detector), there are **three primary functions** used by cDNA-detector:
+
+1. **prepare**
+2. **detect**
+3. **clean**
+
+For more info on any of these modules, please see the original [**README**](https://github.com/rheinbaylab/cDNA-detector). 
+
+### Prepare
+
+Several genomes are already prepared and available natively by `cDNA-detector`, which can simply be called during `detect` using pointers to the genome such as `hg38`. Here, I prepare a genome from the **10x Genomics hg38** distribution:
+
+```python
+cDNA.prepare(
+    ref_10x="/home/mvinyard/ref/hg38/refdata-cellranger-arc-GRCh38-2020-A-2.0.0/"
+)
+```
+>Preparing cDNA-detector gene model... this should take 5-7 minutes...
+
+### Detect
 
 **Define the path to all 10x samples**:
 
 Assumes the following structure where only the path before what is shown in brackets is passed to the module:
-```python=
+```python
 data_path = "/home/mvinyard/data/10x_samples/[SAMPLE/outs/possorted_bam.bam]"
 ```
 
 **Define output path**:
 
 Only a single directory (or none if the working directory suits you) need be definied. Sample names do not need to be defined; this is done by the wrapper class when each sample is detected and outputs are stored separately. 
-```python=
+```python
 outdir = "/path/to/cDNA_detector/outs/[SAMPLE]/"
 ```
 
 **Instantiate, run preflight**:
-```python=
+```python
 cDNA = cDNA_detector()
 cDNA.preflight(data_path=data_path, outdir=outdir, gene_model="hg38")
+```
+Alternatively, we could run `cDNA.preflight()` without defining the gene model. In this case, since we ran `cDNA.prepare()`, it will detect the on-hand gene model and print the following:
+```
+Using available gene model:
+
+	/home/mvinyard/ref/hg38/refdata-cellranger-arc-GRCh38-2020-A-2.0.0/gene_model/genes.saf
 ```
 
 **View inputs and outputs**:
 
 After running the preflight setup, one can check the in and out paths as well as IDs for each sample:
-```python=
+```python
 cDNA.view()
 ```
 ```
-Sample_1:
+Sample_A01:
 
-    /path/to/data/Sample_1/outs/possorted_bam.bam
-    /home/mvinyard/results/cDNA-detector/Sample_1
+    /path/to/data/Sample_A01/outs/possorted_bam.bam
+    /home/mvinyard/results/cDNA-detector/Sample_A01
     
-Sample_2:
+Sample_B01:
 
-    /path/to/data/Sample_2/outs/possorted_bam.bam
-    /home/mvinyard/results/cDNA-detector/Sample_2
+    /path/to/data/Sample_B01/outs/possorted_bam.bam
+    /home/mvinyard/results/cDNA-detector/Sample_B01
+
+Sample_C01:
+
+    /path/to/data/Sample_C01/outs/possorted_bam.bam
+    /home/mvinyard/results/cDNA-detector/Sample_C01
     
-              .
-              .
-              .    
-              
-Sample_N:
+Sample_D01:
 
-    /path/to/data/Sample_N/outs/possorted_bam.bam
-    /home/mvinyard/results/cDNA-detector/Sample_N
+    /path/to/data/Sample_D01/outs/possorted_bam.bam
+    /home/mvinyard/results/cDNA-detector/Sample_D01    
 
+Sample_E01:
+
+    /path/to/data/Sample_E01/outs/possorted_bam.bam
+    /home/mvinyard/results/cDNA-detector/Sample_E01   
 ```
 
-**Finally, Run the `cDNA-detector` Module**:
+**Run the `cDNA-detector` Module**:
 ```
 cDNA.detect()
+```
+
+If any samples happen to have been lost during processing due to memory or some other such error, one can check if there are any orphaned samples using the following function:
+```
+cDNA.get_orphaned_samples()
+```
+
+```
+Number of samples: 0
+---------------------
+```
+Ideally, you will see the above output when you look for orphaned samples but if you do find some, it's easy to clean them up by subsequently running:
+```
+cDNA.detect(orphaned=True)
+```
+```
+Now runnning cDNA Detector detect module on sample: Sample_A01
+
+Now runnning cDNA Detector detect module on sample: Sample_B01
+
+Now runnning cDNA Detector detect module on sample: Sample_C01
+
+Now runnning cDNA Detector detect module on sample: Sample_D01
+
+Now runnning cDNA Detector detect module on sample: Sample_E01
 ```
 
 **The results can be loaded and parsed using the following function**:
 ```
 cDNA.tabulate_results()
 ```
+This function outputs a graph as well as various summary
+statistics for each sample, generated by cDNA-detector. 
 
-### Notes:
-- other modules of cDNA-detector, namely `prepare` and `clean` have not yet been implemented in this wrapper. 
+### Clean
+```
+cDNA.get_samples(data_path, outdir)
+cDNA.clean_preflight()
+cDNA.clean()
+```
+```
+Now runnning cDNA Detector clean module on sample: Sample_A01
+Now runnning cDNA Detector clean module on sample: Sample_B01
+Now runnning cDNA Detector clean module on sample: Sample_C01
+Now runnning cDNA Detector clean module on sample: Sample_D01
+Now runnning cDNA Detector clean module on sample: Sample_E01
+```
+
+### New function: Make 10x fastq
+Unfortunately, a `.bam` file is not a good place to start for 10x samples since running their preprocessing pipeline requires one to use FASTQ files as input, formatting using the 10x Chromium indices. However, 10x has a special implementation of `bam2fastq` for recreating single-cell fastq inputs compatible with their proprietary preprocessing software, CellRanger-ATAC.
+
+I've wrapped this implementation as a final, additional step for **cDNA-detector** as `cDNA.make_fastq()`, which prepares new FASTQ files for 10x. This is resource- and time-intensive, so I would only reccomend running this in the case of severe contamination. However, there are many benefits to sticking with the official QC/preprocessing of cellranger. 

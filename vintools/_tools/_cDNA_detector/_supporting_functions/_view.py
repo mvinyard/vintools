@@ -1,5 +1,5 @@
 
-from ...._utilities._pystrings import _format_string_printing_font
+from ...._utilities._ux_utils._pystrings import _format_string_printing_font
 
 def _view(SampleDict):
     

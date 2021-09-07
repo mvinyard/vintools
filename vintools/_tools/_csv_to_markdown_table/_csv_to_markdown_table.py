@@ -1,6 +1,6 @@
 # local imports #
 # ------------- #
-from ..._utilities._pystrings import _format_string_printing_font
+from ..._utilities._ux_utils._pystrings import _format_string_printing_font
 from ._supporting_functions import _make_TableDict, _write_dict_to_markdown_table, _view_formatted_table
 
 # package imports #
