@@ -1,8 +1,8 @@
 
 # package imports #
 # --------------- #
-# import matplotlib
-# import matplotlib.font_manager
+import matplotlib
+import matplotlib.font_manager
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
 from matplotlib.colorbar import Colorbar
@@ -14,10 +14,10 @@ from ._set_minimal_ticks import _set_minimal_ticks
 
 # # matplotlib presets #
 # # ------------------ #
-# font = {"size": 12}
-# matplotlib.rc(font)
-# matplotlib.rcParams["font.sans-serif"] = "Arial"
-# matplotlib.rcParams["font.family"] = "sans-serif"
+font = {"size": 12}
+matplotlib.rc(font)
+matplotlib.rcParams["font.sans-serif"] = "Arial"
+matplotlib.rcParams["font.family"] = "sans-serif"
 
 def _histogram_2d_component_plot(
     data,

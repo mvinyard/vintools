@@ -2,6 +2,7 @@
 # package imports #
 # --------------- #
 import numpy as np
+import torch
 
 def _partition(unpartitioned_items, groupsize=5):
     
@@ -24,7 +25,8 @@ def _partition(unpartitioned_items, groupsize=5):
     """
 
     for i in range(0, len(unpartitioned_items), groupsize):
-        yield np.array(unpartitioned_items[i : i + groupsize])
+        yield torch.Tensor(unpartitioned_items[i : i + groupsize])
+#         yield np.array(unpartitioned_items[i : i + groupsize])
 
 
 def _smooth(unpartitioned_items, groupsize=5):
@@ -35,6 +37,7 @@ def _smooth(unpartitioned_items, groupsize=5):
     Parameters:
     -----------
     unpartitioned_items
+        type: list
 
     groupsize
 
