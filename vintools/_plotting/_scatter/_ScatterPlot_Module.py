@@ -1,7 +1,7 @@
 
 from ._supporting_functions._construct_plot import _construct_plot
 from ._supporting_functions._style_plot import _spine_presets, _add_grid
-from ._supporting_functions._plot_data import _plot_data
+from ._supporting_functions._plot_data import _plot_data, _plot_simple
 
 import matplotlib
 font = {"size": 12}
@@ -55,8 +55,12 @@ class ScatterPlot:
         """ """        
         _plot_data(self.AxesDict, adata, embedding, variables_to_plot)
         
+    def simple(self, x, y, title=None, color='grey'):
         
-def _scatter(adata, variables_to_plot, embedding="X_SPRING"):
+        _plot_simple(self.AxesDict, x, y, title, color)
+        
+        
+def _scatter(adata=False, x=False, y=False, title=None, color='grey', variables_to_plot=None, embedding="X_SPRING", show=True):
     
     """
     adata
@@ -66,9 +70,21 @@ def _scatter(adata, variables_to_plot, embedding="X_SPRING"):
     embedding
 
     """
-
+    
+    if variables_to_plot == None:
+        nplots = 1
+    else:
+        nplots=len(variables_to_plot)
+        
+        
+    
     sc = ScatterPlot()
-    sc.construct_layout(nplots=len(variables_to_plot))
+    sc.construct_layout(nplots=nplots)
     sc.style()
-    sc.plot_data(adata, embedding, variables_to_plot)
-    plt.show()
+
+    if adata:
+        sc.plot_data(adata, embedding, variables_to_plot)
+    else:
+        sc.simple(x, y, title, color)
+    if show:            
+        plt.show()

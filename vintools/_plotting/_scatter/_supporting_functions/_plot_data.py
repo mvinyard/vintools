@@ -37,7 +37,7 @@ def _plot_continuous(ax, adata, x, y, variable):
     ax.scatter(x, y, c=color_values, zorder=1000)
 
 
-def _makesubplot(ax, adata, embedding, variable=None):
+def _make_subplot(ax, adata, embedding, variable=None):
 
     x, y = adata.obsm[embedding][:, 0], adata.obsm[embedding][:, 1]
 
@@ -58,4 +58,19 @@ def _plot_data(AxesDict, adata, embedding, variables_to_plot):
         for n_plot, ax in enumerate(AxesDict[row].values()):
             if len(variables_to_plot) == n_plot:
                 break
-            _makesubplot(ax, adata, embedding, variable=variables_to_plot[n_plot])
+            _make_subplot(ax, adata, embedding, variable=variables_to_plot[n_plot])
+            
+            
+##### NON-ANNDATA ###### 
+
+def _make_simplesubplot(ax, x, y, title, color):
+
+
+    ax.scatter(x, y, c=color, zorder=1000)
+    ax.set_title(title)
+        
+def _plot_simple(AxesDict, x, y, title, color):
+    
+    for row in AxesDict.keys():
+        for n_plot, ax in enumerate(AxesDict[row].values()):
+            _make_simplesubplot(ax, x, y, title, color)
