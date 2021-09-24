@@ -1,5 +1,9 @@
 # plotting
 
+
+from ._scatter._ScatterPlot_Module import ScatterPlot
+from ._scatter._ScatterPlot_Module import _scatter as scatter
+
 from .fig_presets import single_fig_presets as presets
 from .make_data_gif import make_gif as make_gif
 
