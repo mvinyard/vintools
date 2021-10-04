@@ -22,5 +22,5 @@ def _add_grid(AxesDict):
     
     for row in AxesDict.keys():
         for ax in AxesDict[row].values():
-            ax.grid(c="grey", alpha=0.5, zorder=0)            
+            ax.grid(c="grey", alpha=0.5, zorder=-1e6)            
             

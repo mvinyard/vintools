@@ -17,7 +17,7 @@ class ScatterPlot:
         """Instantiates a scatterplot"""
         
     def construct_layout(
-        self, nplots, ncols=4, figsize_width=1, figsize_height=1, figsize=False
+        self, nplots, ncols=4, figsize_width=1, figsize_height=1, figsize=False, grid_hspace=0, width_ratios=False
     ):
 
         """
@@ -40,9 +40,17 @@ class ScatterPlot:
         else:
             self.figsize_width = figsize_width
             self.figsize_height = figsize_height
-
+        
+        self.grid_hspace=grid_hspace
+        self.width_ratios=width_ratios
+        
         self.fig, self.AxesDict = _construct_plot(
-            nplots=self.nplots, ncols=self.ncols, figsize_width=self.figsize_width, figsize_height=self.figsize_height
+            nplots=self.nplots, 
+            ncols=self.ncols, 
+            figsize_width=self.figsize_width, 
+            figsize_height=self.figsize_height,
+            grid_hspace=self.grid_hspace,
+            width_ratios=self.width_ratios,
         )
         
     def style(self):
@@ -53,13 +61,12 @@ class ScatterPlot:
     def plot_data(self, adata, embedding, variables_to_plot):
         
         """ """        
-        _plot_data(self.AxesDict, adata, embedding, variables_to_plot)
-        
+        self.plots = _plot_data(self.AxesDict, adata, embedding, variables_to_plot)
+
     def simple(self, x, y, title=None, color='grey'):
         
-        _plot_simple(self.AxesDict, x, y, title, color)
-        
-        
+        self.plots = _plot_simple(self.AxesDict, x, y, title, color)
+    
 def _scatter(adata=False, x=False, y=False, title=None, color='grey', variables_to_plot=None, embedding="X_SPRING", show=True):
     
     """
@@ -83,8 +90,8 @@ def _scatter(adata=False, x=False, y=False, title=None, color='grey', variables_
     sc.style()
 
     if adata:
-        sc.plot_data(adata, embedding, variables_to_plot)
+        plots = sc.plot_data(adata, embedding, variables_to_plot)
     else:
-        sc.simple(x, y, title, color)
+        plots = sc.simple(x, y, title, color)
     if show:            
         plt.show()

@@ -79,7 +79,7 @@ def _setup_fig(ncols, nrows, figsize_width, figsize_height):
 
     return fig
 
-def _construct_plot(nplots, ncols=4, figsize_width=1, figsize_height=1):
+def _construct_plot(nplots, ncols=4, figsize_width=1, figsize_height=1, grid_hspace=0.2, width_ratios=False):
 
     """
     Creates Axes for each desired plot.
@@ -101,9 +101,16 @@ def _construct_plot(nplots, ncols=4, figsize_width=1, figsize_height=1):
 
     """
     
+    
+        
+    
+    if width_ratios == False:
+        if nplots <= ncols:
+            width_ratios = np.ones(ncols)
+    
     nrows = _calculate_nrows(nplots, ncols)
     fig = _setup_fig(ncols, nrows, figsize_width, figsize_height)
-    gridspec = GridSpec(nrows, ncols, width_ratios=np.ones(ncols))
+    gridspec = GridSpec(nrows, ncols, width_ratios=width_ratios, hspace=grid_hspace)
     
     plot_count = 0
     AxesDict = {}
