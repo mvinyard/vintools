@@ -15,3 +15,5 @@ from ._csv_to_markdown_table._csv_to_markdown_table import create_md_table
 from ._csv_to_markdown_table._csv_to_markdown_table import quicktable
 
 from ._DESeq2._batch_DESeq2 import _run_batch_DESeq2 as DESeq2
+
+from ._deepTools._deepTools_Module import _deepTools as deepTools
