@@ -12,6 +12,7 @@ from . import _plotting  as pl
 from . import _utilities as ut
 from . import _tools as tl
 from . import _single_cell as sc
+from . import _genome_editing as edit
 from . import _testing_and_development as dev
 from . import _data
 
