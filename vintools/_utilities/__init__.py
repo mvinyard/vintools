@@ -1,5 +1,6 @@
 # utilities
 
+from ._data_utils._read_txt import _read_txt as read_txt
 from ._data_utils._vcf_tools import read_vcf
 from ._data_utils._flatten_lists import _flatten_list_of_lists as flatten
 from ._data_utils._get_data_bounds import _get_data_bounds as get_data_bounds
@@ -14,6 +15,8 @@ from ._data_utils._parse_gtf import _parse_gtf_as_dictionary as parse_gtf
 # from ._zero_centered_random import _zero_centered_random as zero_centered_random
 from ._ux_utils._pystrings import _format_string_printing_font as format_pystring
 from ._ux_utils._cell_complete_audio import _ipy_cell_complete_audio as done
+from ._ux_utils._print_underline import _print_underline as print_underlined
+
 
 from ._system_utils._report_imports import _report_imports as imports
 from ._system_utils._get_vintools_version import _get_vintools_version as version
