@@ -35,6 +35,7 @@ setup(
         "torchdiffeq>=0.2.1",
 	"harmony-pytorch>=0.1.6",
 	"psutil>=5.8.0",
+	"biopython>=1.79",
 
     ],
     classifiers = [
