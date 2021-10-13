@@ -1,5 +1,6 @@
 # plotting
 
+from ._plot_utils._get_default_matplotlib_figure_width_height import _get_default_matplotlib_figure_width_height as mpl_dimensions
 
 from ._scatter._ScatterPlot_Module import ScatterPlot
 from ._scatter._ScatterPlot_Module import _scatter as scatter
