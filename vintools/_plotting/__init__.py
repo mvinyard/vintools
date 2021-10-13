@@ -23,7 +23,4 @@ from ._modify_ax_spines import _modify_ax_spines as ax_spines
 from ._histogram_2d_component_plot import _histogram_2d_component_plot as hist2d_component_plot
 
 
-from ._get_default_figure_height_width import _get_default_figure_height_width as mpl_default_hw
-
-
 from ._plot_correlation_heatmap import _plot_correlation_heatmap as correlation_heatmap

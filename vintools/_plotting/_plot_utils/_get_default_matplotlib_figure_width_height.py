@@ -9,7 +9,19 @@ __email__ = ", ".join(["vinyard@g.harvard.edu",])
 # --------------- #
 import matplotlib
 
+    """
+    Return default height and width of matplotlib figures.
 
+    Parameters:
+    -----------
+    None
+
+    Returns:
+    --------
+    DefaultFigsizeDict
+        two key-value pairs of height and width.
+        type: Dict
+    """
 def _get_default_matplotlib_figure_width_height():
 
     """
@@ -22,6 +34,7 @@ def _get_default_matplotlib_figure_width_height():
     Returns:
     --------
     w, h
+        width and height of the default matplotlib figure size
     
     Notes:
     ------
