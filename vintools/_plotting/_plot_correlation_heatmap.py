@@ -1,5 +1,5 @@
 
-from ._get_default_figure_height_width import _get_default_figure_height_width
+from ._plot_utils._get_default_matplotlib_figure_width_height import _get_default_matplotlib_figure_width_height
 
 from matplotlib.gridspec import GridSpec
 import matplotlib
