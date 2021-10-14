@@ -1,11 +1,11 @@
-
 # package imports #
 # --------------- #
 import numpy as np
 import torch
 
+
 def _partition(unpartitioned_items, groupsize=5):
-    
+
     """
     Yield successive n-sized chunks. 
 
@@ -26,11 +26,13 @@ def _partition(unpartitioned_items, groupsize=5):
 
     for i in range(0, len(unpartitioned_items), groupsize):
         yield torch.Tensor(unpartitioned_items[i : i + groupsize])
+
+
 #         yield np.array(unpartitioned_items[i : i + groupsize])
 
 
 def _smooth(unpartitioned_items, groupsize=5):
-    
+
     """
     Given a list and groupsize, returns smoothed mean and stdev over groupsize-partitioned list. 
 
@@ -52,7 +54,7 @@ def _smooth(unpartitioned_items, groupsize=5):
     Notes:
     ------
     """
-        
+
     smoothed_means = []
     smoothed_stdev = []
 

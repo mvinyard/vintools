@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import scipy.sparse
 
+
 def _get_var_df(mat_group, var_col=["id", "genome", "feature_type"]):
 
     var_df = pd.DataFrame()
@@ -29,6 +30,7 @@ def _get_barcodes(mat_group):
     return pd.DataFrame(
         mat_group["barcodes"][()].astype(str), columns=["cell_barcodes"]
     )
+
 
 def _AnnData_from_10x_h5(
     h5_path, var_col=["id", "genome", "feature_type"], silent=False

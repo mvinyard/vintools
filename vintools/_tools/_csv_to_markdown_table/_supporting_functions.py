@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def _add_bookends(row):
     return "".join(["|", "|".join(row), "|"])
 
@@ -22,11 +23,13 @@ def _make_TableDict(df):
         table[idx] = _add_bookends(row.values.astype(str)) + "\n"
     return table
 
+
 def _view_formatted_table(table):
-    
+
     for [key, row] in table.items():
         print(row.strip("\n"))
-        
+
+
 def _write_dict_to_markdown_table(TableDict, outfile):
 
     """"""

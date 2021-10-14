@@ -1,5 +1,5 @@
-
 """This module functions are used for general formatting of arrays."""
+
 
 def _check_if_scipy_sparse_mtx(array):
 

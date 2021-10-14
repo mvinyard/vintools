@@ -1,10 +1,10 @@
-
 import numpy as np
 import string
 import os
 
 from ..._utilities._system_utils._flexible_mkdir import _flexible_mkdir
 from ..._utilities._system_utils._get_pypi_package_loc import _get_pypi_package_loc
+
 
 def _choose_n_cancer_samples(df_meta, n_samples):
 
@@ -42,34 +42,37 @@ def _prep_DESeq2_input_data(dfe, df_meta, n_cancer_samples, tmp_run_dir):
     """"""
 
     df_, dfm_ = _subset_input_dfs(dfe, df_meta, n_cancer_samples)
-    
+
     path_data = os.path.join(tmp_run_dir, "gex_counts.csv")
     path_meta = os.path.join(tmp_run_dir, "gex_meta.csv")
 
     df_.to_csv(path_data)
     dfm_.to_csv(path_meta, index_label=False)
-    
+
     return path_data, path_meta
 
-def _run_DESeq2(
-    dfe, df_meta, n_cancer_samples, outs_dir="./", run_name="testRun"
-):
+
+def _run_DESeq2(dfe, df_meta, n_cancer_samples, outs_dir="./", run_name="testRun"):
 
     """"""
-    
+
     software_dir = os.path.dirname(_get_pypi_package_loc())
     path = os.path.join(software_dir, "vintools/vintools/_tools/_DESeq2/DESeq2.R")
-    
-    tmp_run_dir="tmp_{}".format("".join(np.random.choice(list(string.ascii_lowercase), 6)))
-    
+
+    tmp_run_dir = "tmp_{}".format(
+        "".join(np.random.choice(list(string.ascii_lowercase), 6))
+    )
+
     _flexible_mkdir(outs_dir)
     _flexible_mkdir(tmp_run_dir)
-    path_data, path_meta = _prep_DESeq2_input_data(dfe, df_meta, n_cancer_samples, tmp_run_dir)
+    path_data, path_meta = _prep_DESeq2_input_data(
+        dfe, df_meta, n_cancer_samples, tmp_run_dir
+    )
 
     executable = " ".join(["Rscript", path, outs_dir, run_name, path_data, path_meta])
     print(executable)
     os.system(executable)
-    
+
     os.system("rm -r {}".format(tmp_run_dir))
 
 

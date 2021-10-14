@@ -1,7 +1,8 @@
 import multiprocessing
 
+
 def _fetch_cpu_count():
-    
+
     """
     Returns the number of available CPUs on machine in use. 
     

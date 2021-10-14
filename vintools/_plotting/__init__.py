@@ -20,7 +20,17 @@ from ._set_minimal_ticks import _set_minimal_ticks as set_minimal_ticks
 
 # from ._histogram import _plot_histogram as histogram
 from ._modify_ax_spines import _modify_ax_spines as ax_spines
-from ._histogram_2d_component_plot import _histogram_2d_component_plot as hist2d_component_plot
+from ._histogram_2d_component_plot import (
+    _histogram_2d_component_plot as hist2d_component_plot,
+)
 
 
+<<<<<<< HEAD
+from ._get_default_figure_height_width import (
+    _get_default_figure_height_width as mpl_default_hw,
+)
+
+
+=======
+>>>>>>> b6876977ad01a96a2fb386a42ad94548b62460e3
 from ._plot_correlation_heatmap import _plot_correlation_heatmap as correlation_heatmap

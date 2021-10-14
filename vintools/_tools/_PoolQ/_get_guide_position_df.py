@@ -1,15 +1,20 @@
 import re
 import pandas as pd
 
-from ..._genome_editing._sequence_manipulation._get_reverse_complement import _get_reverse_complement
-from ..._genome_editing._sequence_manipulation._get_chromosome_sequence import _get_chromosome_sequence
+from ..._genome_editing._sequence_manipulation._get_reverse_complement import (
+    _get_reverse_complement,
+)
+from ..._genome_editing._sequence_manipulation._get_chromosome_sequence import (
+    _get_chromosome_sequence,
+)
+
 
 def _isolate_target_sequence(
     chromosome,
     start,
     stop,
     ref_seq_path="/home/mvinyard/ref/refdata-gex-GRCh38-2020-A/fasta/genome.fa",
-    ):
+):
 
     """ """
 
@@ -91,15 +96,13 @@ def _make_guide_df(guide_sequence, target_sequence):
 
     return guide_df
 
+
 def _get_guide_position_df(region, chromosome, start, stop, rowsfile, row_delim):
 
     target_seq = _isolate_target_sequence(chromosome, start, stop)
 
     guides = pd.read_csv(
-        rowsfile,
-        sep=row_delim,
-        header=None,
-        names=["sequence", "target_region"],
+        rowsfile, sep=row_delim, header=None, names=["sequence", "target_region"],
     )
     region_guides = guides.loc[guides.target_region.str.contains(region)]
     guide_df = _make_guide_df(

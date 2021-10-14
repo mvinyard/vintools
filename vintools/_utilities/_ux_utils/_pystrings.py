@@ -1,4 +1,3 @@
-
 def _pystring_format_effects(key=None):
 
     _pystring_format_effects_dict = {

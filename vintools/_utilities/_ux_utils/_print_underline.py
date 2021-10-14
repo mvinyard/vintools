@@ -1,4 +1,3 @@
-
 # package imports #
 # --------------- #
 import numpy as np
@@ -6,6 +5,7 @@ import numpy as np
 # local imports #
 # ------------- #
 from ._pystrings import _format_string_printing_font
+
 
 def _print_underline(string, formatting=["BOLD", "RED"], n_newline=1):
 

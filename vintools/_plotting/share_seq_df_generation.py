@@ -1,6 +1,5 @@
-
 def shareseq_palette_df():
-    
+
     """Defines the dataframe for colors pertaining to the celltypes of the SHARE-seq dataset."""
 
     import pandas as pd
@@ -29,7 +28,7 @@ def shareseq_palette_df():
             "Melanocyte",
             "Sebaceous Gland",
             "Schwann Cell",
-            "Mixed"
+            "Mixed",
         ],
         "colors": [
             "#0F532C",
@@ -54,10 +53,10 @@ def shareseq_palette_df():
             "#ECE819",
             "#FEC75C",
             "#E84C9D",
-            "#161616"
+            "#161616",
         ],
     }
 
     shareseq_df = pd.DataFrame(d)
-    
+
     return shareseq_df

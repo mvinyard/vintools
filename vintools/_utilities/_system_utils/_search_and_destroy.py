@@ -2,6 +2,7 @@ from .._ux_utils._pystrings import _format_string_printing_font as format_pystri
 import numpy as np
 import os, shutil
 
+
 def _enumerate_search_keyword_over_path(
     path_dir_to_search,
     keyword=None,
@@ -53,6 +54,7 @@ def _enumerate_search_keyword_over_path(
         )
     )
     return matching_dirpath
+
 
 def _find_and_destroy_pycache(path_dir_to_search="/home/mvinyard/"):
 

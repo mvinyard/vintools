@@ -25,11 +25,13 @@ from ._system_utils._use_n_cores import _use_n_cores as use_n_cores
 from ._system_utils._clone_GitHub_repo import _clone_GitHub_repo as git_clone
 from ._system_utils._get_pypi_package_loc import _get_pypi_package_loc as which
 from ._system_utils._flexible_mkdir import _flexible_mkdir as mkdir_flex
-from ._system_utils._search_and_destroy import _find_and_destroy_pycache as findNdestroy_pycache
+from ._system_utils._search_and_destroy import (
+    _find_and_destroy_pycache as findNdestroy_pycache,
+)
 from ._system_utils._send_email import _send_email as email
-from ._system_utils._dynamical_import_of_function_from_string import _dynamical_import_of_function_from_string as import_from_string
+from ._system_utils._dynamical_import_of_function_from_string import (
+    _dynamical_import_of_function_from_string as import_from_string,
+)
 
 
 # from ._time import _time as time
-
-
