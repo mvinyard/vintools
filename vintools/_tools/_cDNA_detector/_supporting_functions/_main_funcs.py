@@ -1,4 +1,3 @@
-
 # package imports #
 # --------------- #
 import os
@@ -10,26 +9,40 @@ from ...._utilities._ux_utils._pystrings import _format_string_printing_font
 from ...._utilities._system_utils._clone_GitHub_repo import _clone_GitHub_repo
 from ...._utilities._system_utils._flexible_mkdir import _flexible_mkdir
 
-from ._make_10x_SampleDict import _add_cleaned_outpath_to_10x_SampleDict, _find_orphaned_samples
+from ._make_10x_SampleDict import (
+    _add_cleaned_outpath_to_10x_SampleDict,
+    _find_orphaned_samples,
+)
 
 
 def _setup_cDNA_detector(cDNA_detector_repo_path, script):
-    
+
     """"""
-    
-    print("{} repository not found... cloning locally now.\n".format(_format_string_printing_font("cDNA-detector", 
-                                                                                                  ["BOLD", "BLUE"])))
-    _clone_GitHub_repo(repository="https://github.com/rheinbaylab/cDNA-detector.git",
-                               destination=cDNA_detector_repo_path)
-    
+
+    print(
+        "{} repository not found... cloning locally now.\n".format(
+            _format_string_printing_font("cDNA-detector", ["BOLD", "BLUE"])
+        )
+    )
+    _clone_GitHub_repo(
+        repository="https://github.com/rheinbaylab/cDNA-detector.git",
+        destination=cDNA_detector_repo_path,
+    )
+
     os.system("chmod a+x {}".format(script))
-    
+
     # install dependencies
-    os.system("pip install --user pandas numpy scipy pysam statsmodels biopython gffpandas joblib")
+    os.system(
+        "pip install --user pandas numpy scipy pysam statsmodels biopython gffpandas joblib"
+    )
     os.system("conda install -c bioconda blast==2.9.0 -y")
-    
-    print("{} package and dependencies installed!".format(_format_string_printing_font("cDNA-detector", 
-                                                                                                  ["BOLD", "BLUE"])))
+
+    print(
+        "{} package and dependencies installed!".format(
+            _format_string_printing_font("cDNA-detector", ["BOLD", "BLUE"])
+        )
+    )
+
 
 def _format_outdir(self, outdir):
 
@@ -43,8 +56,16 @@ def _format_outdir(self, outdir):
     else:
         self.outdir = outdir
 
+
 def _detect(
-    script, bam, sample_id, gene_model, n_cores, fast, cDNA_detector_outdir_sample, dry_run
+    script,
+    bam,
+    sample_id,
+    gene_model,
+    n_cores,
+    fast,
+    cDNA_detector_outdir_sample,
+    dry_run,
 ):
 
     """"""
@@ -54,12 +75,12 @@ def _detect(
             _format_string_printing_font("detect", ["BOLD"]),
             _format_string_printing_font(sample_id, ["BOLD"]),
         )
-    )    
+    )
     if fast:
-        fast = '&'
+        fast = "&"
     else:
-        fast = ''
-    
+        fast = ""
+
     cDNA_detector_detect_command = "{} detect --bam {} --sample_id {} --gene_model {} --n_threads {} --output_dir {} {}\n".format(
         script, bam, sample_id, gene_model, n_cores, cDNA_detector_outdir_sample, fast
     )
@@ -67,34 +88,44 @@ def _detect(
         print(cDNA_detector_detect_command)
     else:
         os.system(cDNA_detector_detect_command)
-        
+
+
 def _prepend_gene_model(prepare_outdir):
-    
+
     """"""
-    
+
     gene_model = glob.glob(prepare_outdir + "/*.saf")[0]
-    
-    print("\nUse the following gene model for `{}`:\n\n\t{}".format(_format_string_printing_font("cDNA-detector detect",['BOLD']),
-                                                                  _format_string_printing_font(gene_model,['BOLD','BLUE'])))
-    
+
+    print(
+        "\nUse the following gene model for `{}`:\n\n\t{}".format(
+            _format_string_printing_font("cDNA-detector detect", ["BOLD"]),
+            _format_string_printing_font(gene_model, ["BOLD", "BLUE"]),
+        )
+    )
+
     return gene_model
 
-def _prepare(script, ref_10x):
-    
-    """"""        
 
-    annotations=os.path.join(ref_10x, "genes/genes.gtf")
-    genome=os.path.join(ref_10x, "fasta/genome.fa")
-    gene_model_dir=os.path.join(ref_10x, "gene_model")
+def _prepare(script, ref_10x):
+
+    """"""
+
+    annotations = os.path.join(ref_10x, "genes/genes.gtf")
+    genome = os.path.join(ref_10x, "fasta/genome.fa")
+    gene_model_dir = os.path.join(ref_10x, "gene_model")
     _flexible_mkdir(gene_model_dir)
-    
+
     print("Preparing cDNA-detector gene model... this should take 5-7 minutes...")
-    
-    executable = "{} prepare --annotation {} --genome {} --output_dir {}".format(script, annotations, genome, gene_model_dir)
+
+    executable = "{} prepare --annotation {} --genome {} --output_dir {}".format(
+        script, annotations, genome, gene_model_dir
+    )
     os.system(executable)
-    
-    assert os.path.exists(gene_model_dir), print("The gene model was not properly created, please investigate and re-run.")
-    
+
+    assert os.path.exists(gene_model_dir), print(
+        "The gene model was not properly created, please investigate and re-run."
+    )
+
     return _prepend_gene_model(gene_model_dir)
 
 
@@ -115,6 +146,7 @@ def _download_bam2fastq_10x_binary(
     os.system("chmod 700 {}".format(binary))
     return binary
 
+
 def _bam2fastq_10x(bam2fastq_binary, bam_file, fastq_outpath, n_threads):
 
     """"""
@@ -126,11 +158,12 @@ def _bam2fastq_10x(bam2fastq_binary, bam_file, fastq_outpath, n_threads):
         bam2fastq_binary, n_threads, bam_file, fastq_outpath
     )
     os.system(executable)
-    
+
+
 def _run_clean_preflight(self):
-    
+
     """"""
-    
+
     _add_cleaned_outpath_to_10x_SampleDict(self.SampleDict)
     try:
         self.OrphanedSampleDict
@@ -138,7 +171,8 @@ def _run_clean_preflight(self):
         self.OrphanedSampleDict = _find_orphaned_samples(self.SampleDict, view=False)
 
     self.clean_preflight_complete = True
-    
+
+
 def _clean(script, bam, sample_id, region, output_dir):
 
     """"""
@@ -149,13 +183,13 @@ def _clean(script, bam, sample_id, region, output_dir):
     )
 
     os.system(executable)
-    
+
+
 def _clean_bam_batch(script, SampleDict, OrphanedSampleDict):
-    
-    
+
     for [id_key, values] in SampleDict.items():
         if not id_key in OrphanedSampleDict.keys():
-            
+
             print(
                 "Now runnning cDNA Detector {} module on sample: {}\n".format(
                     _format_string_printing_font("clean", ["BOLD"]),
@@ -178,7 +212,8 @@ def _clean_bam_batch(script, SampleDict, OrphanedSampleDict):
                 region=merged_region,
                 output_dir=cleaned_bam_outdir,
             )
-    
+
+
 def _run_make_clean_fastq_batch(bam2fastq_binary, SampleDict, n_cores):
 
     for [id_key, values] in SampleDict.items():

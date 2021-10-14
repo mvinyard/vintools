@@ -1,12 +1,7 @@
 # data __init__.py
 
-__author__ = ', '.join([
-    'Michael E. Vinyard'
-])
-__email__ = ', '.join([
-    'vinyard@g.harvard.edu',
-])
-
+__author__ = ", ".join(["Michael E. Vinyard"])
+__email__ = ", ".join(["vinyard@g.harvard.edu",])
 
 
 from ._data_tools._data_loader_utils import _create_data_cache as create_data_cache

@@ -1,4 +1,3 @@
-
 from ..._plotting import share_seq
 from ..._plotting import vin_colors
 
@@ -11,6 +10,7 @@ import scanpy as sc
 from harmony import harmonize
 
 import warnings
+
 warnings.filterwarnings("ignore")
 
 
@@ -43,8 +43,7 @@ def _run_scanpy_standard_qc(adata, plot=True):
     if plot:
 
         sc.pl.highest_expr_genes(
-            adata,
-            n_top=20,
+            adata, n_top=20,
         )
         sc.pl.violin(
             adata,
@@ -57,7 +56,9 @@ def _run_scanpy_standard_qc(adata, plot=True):
         sc.pl.scatter(adata, x="total_counts", y="n_genes_by_counts")
 
 
-def _scanpy_normalize(adata, plot=True, perform_filtering=False, regress_out=False, max_value=10):
+def _scanpy_normalize(
+    adata, plot=True, perform_filtering=False, regress_out=False, max_value=10
+):
 
     print("Running scanpy normalization against counts total...")
     sc.pp.normalize_total(adata, target_sum=1e4)
@@ -82,7 +83,9 @@ def _scanpy_normalize(adata, plot=True, perform_filtering=False, regress_out=Fal
     sc.pp.scale(adata, max_value=max_value)
 
 
-def _run_scanpy_pca_umap(adata, svd_solver="arpack", plot_report=False, plot_genes=False):
+def _run_scanpy_pca_umap(
+    adata, svd_solver="arpack", plot_report=False, plot_genes=False
+):
 
     """
 
@@ -142,6 +145,7 @@ def _run_Harmony(adata, harmonize_on="X_pca", batch_key="sample"):
             adata.X, adata.obs, batch_key=batch_key
         )
 
+
 def _run_umap(adata, obsm_key="X_harmony_on_X_pca"):
 
     """"""
@@ -155,7 +159,13 @@ def _run_umap(adata, obsm_key="X_harmony_on_X_pca"):
     adata.obsm["X_umap_harmony"] = embedding = reducer.fit_transform(scaled_data)
 
 
-def _singlefig_umap_presets(title="UMAP", figsize=(8, 6.5), title_fontsize=12, label_fontsize=10, title_adjust_y=1.05,):
+def _singlefig_umap_presets(
+    title="UMAP",
+    figsize=(8, 6.5),
+    title_fontsize=12,
+    label_fontsize=10,
+    title_adjust_y=1.05,
+):
 
     """"""
 
@@ -178,8 +188,9 @@ def _singlefig_umap_presets(title="UMAP", figsize=(8, 6.5), title_fontsize=12, l
 
     return fig, ax
 
+
 def _quick_extend_color_palette(n_ids):
-    
+
     extended_default = share_seq()["colors"].tolist()
     if n_ids > len(extended_default):
         for color in range(n_ids - len(extended_default)):
@@ -187,7 +198,10 @@ def _quick_extend_color_palette(n_ids):
 
         return extended_default
 
-def _plot_UMAP_by_categorical_obskey(adata, obs_key=None, legend_cols=2, separate_colors=False):
+
+def _plot_UMAP_by_categorical_obskey(
+    adata, obs_key=None, legend_cols=2, separate_colors=False
+):
 
     """"""
 
@@ -226,6 +240,7 @@ def _plot_UMAP_by_categorical_obskey(adata, obs_key=None, legend_cols=2, separat
         bbox_to_anchor=(0.5, 0.0, 0.95, 1),
     )
 
+
 def _plot_UMAP_by_GEX(adata, gene=None, cmap="Purples"):
 
     """"""
@@ -258,6 +273,7 @@ def _plot_UMAP_by_GEX(adata, gene=None, cmap="Purples"):
         zorder=2,
     )
     plt.colorbar(shrink=0.35, aspect=10)
+
 
 def _adjust_clustering_resolution(
     adata,
@@ -305,7 +321,13 @@ def _adjust_clustering_resolution(
         plot_title = "Harmony Integration: Leiden\nadjusted resolution: {}".format(
             desired_resolution
         )
-        _singlefig_umap_presets(title=plot_title, figsize=figsize, title_fontsize=title_fontsize, label_fontsize=label_fontsize, title_adjust_y=title_adjust_y,)
+        _singlefig_umap_presets(
+            title=plot_title,
+            figsize=figsize,
+            title_fontsize=title_fontsize,
+            label_fontsize=label_fontsize,
+            title_adjust_y=title_adjust_y,
+        )
 
         _plot_UMAP_by_categorical_obskey(
             adata,
@@ -322,8 +344,15 @@ def _adjust_clustering_resolution(
         )
         sc.tl.louvain(adata, resolution=desired_resolution)
         plot_title = "Harmony Integration: Louvain\nadjusted resolution: {}".format(
-                desired_resolution)
-        _singlefig_umap_presets(title=plot_title, figsize=figsize, title_fontsize=title_fontsize, label_fontsize=label_fontsize, title_adjust_y=title_adjust_y,)
+            desired_resolution
+        )
+        _singlefig_umap_presets(
+            title=plot_title,
+            figsize=figsize,
+            title_fontsize=title_fontsize,
+            label_fontsize=label_fontsize,
+            title_adjust_y=title_adjust_y,
+        )
         _plot_UMAP_by_categorical_obskey(
             adata,
             obs_key="louvain",
@@ -335,6 +364,7 @@ def _adjust_clustering_resolution(
             current_resolution, desired_resolution
         )
     )
+
 
 def _scanpy_dotplots_GEX(adata, marker_genes, clustering_algorithm="leiden"):
 

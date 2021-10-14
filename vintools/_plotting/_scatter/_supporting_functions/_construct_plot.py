@@ -1,13 +1,14 @@
-
 import math
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
 
+
 def _calculate_nrows(nplots, ncols):
 
     return math.ceil(nplots / ncols)
+
 
 def _get_default_figure_height_width():
 
@@ -32,8 +33,9 @@ def _get_default_figure_height_width():
         default_figsize_mpl[0],
         default_figsize_mpl[1],
     )
-    
+
     return DefaultFigsizeDict
+
 
 def _setup_fig(ncols, nrows, figsize_width, figsize_height):
 
@@ -79,7 +81,15 @@ def _setup_fig(ncols, nrows, figsize_width, figsize_height):
 
     return fig
 
-def _construct_plot(nplots, ncols=4, figsize_width=1, figsize_height=1, grid_hspace=0.2, width_ratios=False):
+
+def _construct_plot(
+    nplots,
+    ncols=4,
+    figsize_width=1,
+    figsize_height=1,
+    grid_hspace=0.2,
+    width_ratios=False,
+):
 
     """
     Creates Axes for each desired plot.
@@ -100,18 +110,15 @@ def _construct_plot(nplots, ncols=4, figsize_width=1, figsize_height=1, grid_hsp
     ------
 
     """
-    
-    
-        
-    
+
     if width_ratios == False:
         if nplots <= ncols:
             width_ratios = np.ones(ncols)
-    
+
     nrows = _calculate_nrows(nplots, ncols)
     fig = _setup_fig(ncols, nrows, figsize_width, figsize_height)
     gridspec = GridSpec(nrows, ncols, width_ratios=width_ratios, hspace=grid_hspace)
-    
+
     plot_count = 0
     AxesDict = {}
 

@@ -1,4 +1,3 @@
-
 def _get_reverse_complement(seq):
 
     """
@@ -30,5 +29,5 @@ def _get_reverse_complement(seq):
         elif i == "N":
             complement_seq += "N"
     reverse_complement_seq = complement_seq[::-1]
-    
+
     return reverse_complement_seq

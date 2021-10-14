@@ -38,7 +38,7 @@ def plot_fig_single_pt(data, save_dir="./imgs/"):
 def make_gif(data, save_dir="./imgs/", show=True, gif_savename="gif.gif"):
 
     """Data must be an (N x 2) numpy array"""
-    
+
     from PIL import Image
 
     plot_fig_single_pt(data, save_dir)

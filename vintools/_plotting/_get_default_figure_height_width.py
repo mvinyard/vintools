@@ -1,5 +1,5 @@
-
 import matplotlib
+
 
 def _get_default_figure_height_width():
 
@@ -24,5 +24,5 @@ def _get_default_figure_height_width():
         default_figsize_mpl[0],
         default_figsize_mpl[1],
     )
-    
+
     return DefaultFigsizeDict

@@ -1,4 +1,3 @@
-
 from ...._plotting._annotate_legend import _annotate_legend
 from ...._plotting.color_palettes import vin_colors
 from ...._plotting._modify_ax_spines import _modify_ax_spines
@@ -10,6 +9,7 @@ import pandas as pd
 import numpy as np
 import glob
 import os
+
 
 def _fetch_gene_statistics_source_filtered(results_dir, sample_id):
 
@@ -30,13 +30,13 @@ def _fetch_gene_statistics_source_filtered(results_dir, sample_id):
     ------
 
     """
-#     print(results_dir + "{}/*gene_statistics.filtered.source_filtered.tsv".format(sample_id))
-
+    #     print(results_dir + "{}/*gene_statistics.filtered.source_filtered.tsv".format(sample_id))
 
     filtered_gene_stats_path = glob.glob(
-        results_dir + "{}/*gene_statistics.filtered.source_filtered.tsv".format(sample_id)
+        results_dir
+        + "{}/*gene_statistics.filtered.source_filtered.tsv".format(sample_id)
     )[0]
-#     print(filtered_gene_stats_path)
+    #     print(filtered_gene_stats_path)
     filtered_gene_stats = pd.read_csv(filtered_gene_stats_path, sep="\t")
 
     return filtered_gene_stats
@@ -58,10 +58,12 @@ def _fetch_merged_regions(results_dir, sample_id):
     ------
 
     """
-    
-#     print(results_dir + "{}/*merge_region.tsv".format(sample_id))
-    merged_region_path = glob.glob(results_dir + "{}/*merge_region.tsv".format(sample_id))[0]
-#     print(merged_region_path)
+
+    #     print(results_dir + "{}/*merge_region.tsv".format(sample_id))
+    merged_region_path = glob.glob(
+        results_dir + "{}/*merge_region.tsv".format(sample_id)
+    )[0]
+    #     print(merged_region_path)
     merged_regions = pd.read_csv(merged_region_path, sep="\t")
     return merged_regions
 
@@ -85,10 +87,11 @@ def _echo_SampleDict_composition(ResultsDict):
             for subkey in keylist:
                 ResultsDict[key][subkey]
                 print("\t  {}".format(subkey))
-            
+
         except:
             pass
-            
+
+
 def _fetch_results(results_dir, silent=False):
 
     """
@@ -118,14 +121,16 @@ def _fetch_results(results_dir, silent=False):
             ResultsDict[sample_id][
                 "gene_statistics_source_filtered"
             ] = _fetch_gene_statistics_source_filtered(results_dir, sample_id)
-            
-            ResultsDict[sample_id]["merged_regions"] = _fetch_merged_regions(results_dir, sample_id)
+
+            ResultsDict[sample_id]["merged_regions"] = _fetch_merged_regions(
+                results_dir, sample_id
+            )
         except:
             missing_results.append(sample_id)
             del ResultsDict[sample_id]
     if not silent:
         _echo_SampleDict_composition(ResultsDict)
-    
+
     return ResultsDict, missing_results
 
 
@@ -137,6 +142,7 @@ def _print_n_passing_fragments(ResultsDict, key):
     df = ResultsDict[key]["merged_regions"]
     n_passing_fragments = df.loc[df.filter == "pass"].shape[0]
     return n_passing_fragments
+
 
 def _grab_fragments(tabulated_results):
 
@@ -150,6 +156,7 @@ def _grab_fragments(tabulated_results):
             pass
     return n_fragments, n_fragments_passing
 
+
 def _plot_tabulated_results(tabulated_results):
 
     cols = vin_colors()
@@ -159,7 +166,7 @@ def _plot_tabulated_results(tabulated_results):
     bar_ax = fig.add_subplot(gridspec[0, 0])
     bar_ax_spines = _modify_ax_spines(bar_ax)
     bar_ax_spines.delete(["top", "right", "left"])
-    
+
     n_fragments, n_fragments_passing = _grab_fragments(tabulated_results)
 
     bar_ax.bar(
@@ -177,16 +184,16 @@ def _plot_tabulated_results(tabulated_results):
         label="Num passing fragments",
     )
     x = bar_ax.set_xticks(np.array(range(0, len([*tabulated_results.keys()]))))
-    x = bar_ax.set_xticklabels([*tabulated_results.keys()], rotation=40,ha='right')
-    
+    x = bar_ax.set_xticklabels([*tabulated_results.keys()], rotation=40, ha="right")
+
     max_y = np.max([np.max(n_fragments_passing), np.max(n_fragments)])
     y_ticks = np.round(np.linspace(0, max_y, 8))
     y = bar_ax.set_yticks(y_ticks)
     _annotate_legend(bar_ax, loc=1)
-    
-    
+
+
 def _tabulate_results(results_dir, plot=True, silent=False):
-    
+
     ResultsDict, missing_results = _fetch_results(results_dir, silent=silent)
 
     tabulated_results = {}
@@ -202,8 +209,8 @@ def _tabulate_results(results_dir, plot=True, silent=False):
             ].shape[0]
         except:
             pass
-    
+
     if plot:
         _plot_tabulated_results(tabulated_results)
-    
+
     return tabulated_results, missing_results

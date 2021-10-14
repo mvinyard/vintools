@@ -1,4 +1,3 @@
-
 from ._get_default_figure_height_width import _get_default_figure_height_width
 
 from matplotlib.gridspec import GridSpec
@@ -15,11 +14,13 @@ matplotlib.rcParams["font.sans-serif"] = "Arial"
 matplotlib.rcParams["font.family"] = "sans-serif"
 
 
-def _plot_correlation_heatmap(df, title="Sample Correlation", figsize=1, title_y=1.15, title_x=0, savename=False):
-    
+def _plot_correlation_heatmap(
+    df, title="Sample Correlation", figsize=1, title_y=1.15, title_x=0, savename=False
+):
+
     DefaultFigsizeDict = _get_default_figure_height_width()
-    default_h, default_w = DefaultFigsizeDict['height'], DefaultFigsizeDict['width']
-    
+    default_h, default_w = DefaultFigsizeDict["height"], DefaultFigsizeDict["width"]
+
     fig = plt.figure(figsize=(default_w * figsize, default_h * figsize))
     gridspec = GridSpec(1, 1)
     ax = fig.add_subplot(gridspec[0, 0])
@@ -38,11 +39,11 @@ def _plot_correlation_heatmap(df, title="Sample Correlation", figsize=1, title_y
     )
     plt.colorbar(im, shrink=0.6, aspect=30)
     plt.title(title, y=title_y, x=title_x, fontsize=16)
-    
+
     if savename:
         figsavename = savename + ".png"
-        plt.savefig(figsavename, bbox_inches='tight')
-    plt.tight_layout()        
+        plt.savefig(figsavename, bbox_inches="tight")
+    plt.tight_layout()
     plt.show()
-    
+
     return figsavename

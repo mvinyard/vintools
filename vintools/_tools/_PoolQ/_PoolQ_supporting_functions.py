@@ -1,5 +1,3 @@
-
-
 from ..._utilities._system_utils._flexible_mkdir import _flexible_mkdir
 from ..._utilities._ux_utils._pystrings import _format_string_printing_font
 from ..._utilities._ux_utils._print_underline import _print_underline
@@ -22,6 +20,7 @@ import matplotlib
 #         outfiles.append(os.path.join(outsdir, file))
 
 #     return outfiles
+
 
 def _make_results_dict(poolq_outs_path):
 
@@ -48,6 +47,7 @@ def _make_results_dict(poolq_outs_path):
     )
 
     return ResultsDict
+
 
 def _get_read_files(data_dir, bc):
 
@@ -151,17 +151,16 @@ def _run_PoolQ(
 def _organize_PoolQ_outputs(run_name, standard_PoolQ_outfiles, outpath, fetch_only):
 
     """Move the outputs of PoolQ from the default output directory (i.e., the working directory "./") to one defined."""
-    
+
     run_dir = run_name + ".PoolQ.3.3.2"
-    
+
     if not fetch_only:
         _flexible_mkdir(run_dir)
-    
-    
+
     for file in standard_PoolQ_outfiles:
         if not fetch_only:
             os.system("mv {} {}".format(file, os.path.join(run_dir)))
-        
+
     if outpath:
         if not fetch_only:
             os.system("mv {} {}".format(run_dir, outpath))
@@ -170,34 +169,38 @@ def _organize_PoolQ_outputs(run_name, standard_PoolQ_outfiles, outpath, fetch_on
     else:
         outs = os.path.join(os.getcwd(), run_dir)
         return outs
-    
+
+
 def _get_plot_columns(df, ignore_containing):
-    
+
     """"""
-    
+
     col_list = []
-    
+
     for column in df.columns:
         if column in ignore_containing:
             continue
         else:
             col_list.append(column)
-    
+
     return col_list
 
-def _plot_correlation_scatter(df, savename, figsize=1, ignore_containing = ["sequence", "barcode_id"]):
-    
+
+def _plot_correlation_scatter(
+    df, savename, figsize=1, ignore_containing=["sequence", "barcode_id"]
+):
+
     """
     df
         lognorm_counts_df
     """
-    
+
     col_list = _get_plot_columns(df, ignore_containing)
 
-    fig = plt.Figure(figsize=(25*figsize, 25*figsize))
+    fig = plt.Figure(figsize=(25 * figsize, 25 * figsize))
     gs = GridSpec(len(col_list), len(col_list))
     AxesDict = {}
-    
+
     for i, col1 in enumerate(col_list):
         AxesDict[i] = {}
         for j, col2 in enumerate(col_list):
@@ -216,5 +219,5 @@ def _plot_correlation_scatter(df, savename, figsize=1, ignore_containing = ["seq
     fig_savename = savename + ".correlation.scatter.png"
     fig.savefig(fig_savename)
     plt.show()
-    
+
     return fig, fig_savename

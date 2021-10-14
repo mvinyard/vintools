@@ -1,7 +1,11 @@
 # local imports #
 # ------------- #
 from ..._utilities._ux_utils._pystrings import _format_string_printing_font
-from ._supporting_functions import _make_TableDict, _write_dict_to_markdown_table, _view_formatted_table
+from ._supporting_functions import (
+    _make_TableDict,
+    _write_dict_to_markdown_table,
+    _view_formatted_table,
+)
 
 # package imports #
 # --------------- #
@@ -34,7 +38,7 @@ class create_md_table:
         Notes:
         ------    
         """
-        
+
         self.infile = infile
 
         self.df = pd.read_csv(self.infile)
@@ -59,9 +63,9 @@ class create_md_table:
         """
 
         self.table = _make_TableDict(self.df)
-        
+
     def view(self):
-        
+
         """
         Preview the formatted markdown table. 
         
@@ -77,7 +81,7 @@ class create_md_table:
         Notes:
         ------
         """
-            
+
         _view_formatted_table(self.table)
 
     def write(self, outfile=False):

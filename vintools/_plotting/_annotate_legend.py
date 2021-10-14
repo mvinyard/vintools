@@ -1,4 +1,3 @@
-
 # package imports #
 # --------------- #
 import matplotlib
@@ -13,12 +12,10 @@ matplotlib.rcParams["font.sans-serif"] = "Arial"
 matplotlib.rcParams["font.family"] = "sans-serif"
 
 
-def _annotate_legend(ax, 
-    markerscale=3, fontsize=12, loc=2, **kwargs
-):
+def _annotate_legend(ax, markerscale=3, fontsize=12, loc=2, **kwargs):
 
     """"""
-    
+
     plt.legend(
         markerscale=markerscale,
         edgecolor="w",

@@ -1,10 +1,10 @@
-
 # package imports #
 # --------------- #
 import os
 
+
 def _flexible_mkdir(path):
-    
+
     """
     Create a directory or ignore if already present. 
     
@@ -20,7 +20,7 @@ def _flexible_mkdir(path):
     Notes:
     ------
     """
-    
+
     if os.path.exists(path):
         pass
     else:

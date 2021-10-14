@@ -1,5 +1,10 @@
-def _report_imports(env_globals=globals(), return_list=False, silent=False, remove_native_modules = ['__builtin__', '__builtins__', 'types', 'sys']):
-    
+def _report_imports(
+    env_globals=globals(),
+    return_list=False,
+    silent=False,
+    remove_native_modules=["__builtin__", "__builtins__", "types", "sys"],
+):
+
     """
     Parameters:
     -----------
@@ -17,9 +22,9 @@ def _report_imports(env_globals=globals(), return_list=False, silent=False, remo
     imported_modules [ optional ]
         type: list
     """
-    
+
     from types import ModuleType
-    
+
     imported_modules = []
     for name, val in env_globals.items():
         if name not in remove_native_modules:

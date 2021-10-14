@@ -1,6 +1,6 @@
-
 import time
 from .._ux_utils._pystrings import _format_string_printing_font
+
 
 def _note_header_lines(gtf, line, header_key="header"):
 
@@ -25,7 +25,7 @@ def _note_header_lines(gtf, line, header_key="header"):
     ------
 
     """
-    
+
     return gtf[header_key].append(line.strip("\n"))
 
 
@@ -75,7 +75,9 @@ def _get_gene_annotation(splitline):
     return gene_id, gene_name, gene_type
 
 
-def _parse_gtf_as_dictionary(gtf_file_path, feature="gene", header_key="header", silent=False):
+def _parse_gtf_as_dictionary(
+    gtf_file_path, feature="gene", header_key="header", silent=False
+):
 
     """
 
@@ -97,12 +99,12 @@ def _parse_gtf_as_dictionary(gtf_file_path, feature="gene", header_key="header",
     -----_
     (1)  The only feature implemeted so far is 'gene'
     """
-    
+
     begin = time.time()
-    
+
     gtf_dict = {}
     gtf_dict[header_key] = []
-    
+
     with open(gtf_file_path) as file:
         for n, line in enumerate(file):
             if line.startswith("##"):
@@ -121,12 +123,16 @@ def _parse_gtf_as_dictionary(gtf_file_path, feature="gene", header_key="header",
                     gtf_dict[chromosome][gene_name]["upper_bound"] = splitline[4]
                     gtf_dict[chromosome][gene_name]["strand"] = splitline[6]
                     gtf_dict[chromosome][gene_name]["gene_type"] = gene_type
-                    
-    end = time.time()                        
-    
-    load_time = str(round((end-begin), 2))
-    
+
+    end = time.time()
+
+    load_time = str(round((end - begin), 2))
+
     if not silent:
-        print("GTF loaded in {} seconds.".format(_format_string_printing_font(load_time, ['BOLD','RED'])))
-    
+        print(
+            "GTF loaded in {} seconds.".format(
+                _format_string_printing_font(load_time, ["BOLD", "RED"])
+            )
+        )
+
     return gtf_dict
