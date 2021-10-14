@@ -1,5 +1,6 @@
 # plotting
 
+from ._plot_utils._get_default_matplotlib_figure_width_height import _get_default_matplotlib_figure_width_height as mpl_dimensions
 
 from ._scatter._ScatterPlot_Module import ScatterPlot
 from ._scatter._ScatterPlot_Module import _scatter as scatter
@@ -24,9 +25,12 @@ from ._histogram_2d_component_plot import (
 )
 
 
+<<<<<<< HEAD
 from ._get_default_figure_height_width import (
     _get_default_figure_height_width as mpl_default_hw,
 )
 
 
+=======
+>>>>>>> b6876977ad01a96a2fb386a42ad94548b62460e3
 from ._plot_correlation_heatmap import _plot_correlation_heatmap as correlation_heatmap
