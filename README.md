@@ -14,7 +14,7 @@ To download this package from pypi:
 ```BASH
 pip install vintools
 ```
-[pypi-versions-badge]]()[pypi-badge]]()
+
 ### Install the development package
 To download and install the development package:
 ```BASH
