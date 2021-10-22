@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Getting started &#8212; numpydoc v1.1 Manual</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/blank.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Style guide" href="format.html" />
+    <link rel="prev" title="numpydoc – Numpy’s Sphinx extensions" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="index.html">
+<p class="title">numpydoc</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Getting started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="format.html">
+  Style guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="validation.html">
+  Validation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="release_notes.html">
+  Release notes
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="example.html">
+  Example
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/numpy/numpydoc" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <div class="col-12 col-md-1 col-xl-2 bd-sidebar no-sidebar"></div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configuration">
+   Configuration
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-11 col-xl-8 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <section id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>This extension requires Python 3.5+, sphinx 1.8+ and is available from:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://pypi.python.org/pypi/numpydoc">numpydoc on PyPI</a></p></li>
+<li><p><a class="reference external" href="https://github.com/numpy/numpydoc/">numpydoc on GitHub</a></p></li>
+</ul>
+<p><cite>‘numpydoc’</cite> should be added to the <code class="docutils literal notranslate"><span class="pre">extensions</span></code> option in your Sphinx
+<code class="docutils literal notranslate"><span class="pre">conf.py</span></code>. <code class="docutils literal notranslate"><span class="pre">'sphinx.ext.autosummary'</span></code> will automatically be loaded
+as well.</p>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>The following options can be set in your Sphinx <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<dl>
+<dt>numpydoc_use_plots<span class="classifier">bool</span></dt><dd><p>Whether to produce <code class="docutils literal notranslate"><span class="pre">plot::</span></code> directives for Examples sections that
+contain <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib</span></code> or <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">matplotlib</span> <span class="pre">import</span></code>.</p>
+</dd>
+<dt>numpydoc_show_class_members<span class="classifier">bool</span></dt><dd><p>Whether to show all members of a class in the Methods and Attributes
+sections automatically.
+<code class="docutils literal notranslate"><span class="pre">True</span></code> by default.</p>
+</dd>
+<dt>numpydoc_show_inherited_class_members<span class="classifier">bool</span></dt><dd><p>Whether to show all inherited members of a class in the Methods and Attributes
+sections automatically. If it’s false, inherited members won’t shown.
+<code class="docutils literal notranslate"><span class="pre">True</span></code> by default.</p>
+</dd>
+<dt>numpydoc_class_members_toctree<span class="classifier">bool</span></dt><dd><p>Whether to create a Sphinx table of contents for the lists of class
+methods and attributes. If a table of contents is made, Sphinx expects
+each entry to have a separate page.
+<code class="docutils literal notranslate"><span class="pre">True</span></code> by default.</p>
+</dd>
+<dt>numpydoc_citation_re<span class="classifier">str</span></dt><dd><p>A regular expression matching citations which
+should be mangled to avoid conflicts due to
+duplication across the documentation.  Defaults
+to <code class="docutils literal notranslate"><span class="pre">[\w-]+</span></code>.</p>
+</dd>
+<dt>numpydoc_use_blockquotes<span class="classifier">bool</span></dt><dd><p>Until version 0.8, parameter definitions were shown as blockquotes, rather
+than in a definition list.  If your styling requires blockquotes, switch
+this config option to True.  This option will be removed in version 0.10.</p>
+</dd>
+<dt>numpydoc_attributes_as_param_list<span class="classifier">bool</span></dt><dd><p>Whether to format the Attributes section of a class page in the same way
+as the Parameter section. If it’s False, the Attributes section will be
+formatted as the Methods section using an autosummary table.
+<code class="docutils literal notranslate"><span class="pre">True</span></code> by default.</p>
+</dd>
+<dt>numpydoc_xref_param_type<span class="classifier">bool</span></dt><dd><p>Whether to create cross-references for the parameter types in the
+<code class="docutils literal notranslate"><span class="pre">Parameters</span></code>, <code class="docutils literal notranslate"><span class="pre">Other</span> <span class="pre">Parameters</span></code>, <code class="docutils literal notranslate"><span class="pre">Returns</span></code> and <code class="docutils literal notranslate"><span class="pre">Yields</span></code>
+sections of the docstring.
+<code class="docutils literal notranslate"><span class="pre">False</span></code> by default.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the link types, the CSS styles might be different.
+consider overriding e.g. <code class="docutils literal notranslate"><span class="pre">span.classifier</span> <span class="pre">a</span> <span class="pre">span.xref</span></code> and
+<code class="docutils literal notranslate"><span class="pre">span.classifier</span> <span class="pre">a</span> <span class="pre">code.docutils.literal.notranslate</span></code>
+CSS classes to achieve a uniform appearance.</p>
+</div>
+</dd>
+<dt>numpydoc_xref_aliases<span class="classifier">dict</span></dt><dd><p>Mappings to fully qualified paths (or correct ReST references) for the
+aliases/shortcuts used when specifying the types of parameters.
+The keys should not have any spaces. Together with the <code class="docutils literal notranslate"><span class="pre">intersphinx</span></code>
+extension, you can map to links in any documentation.</p>
+<p>The default <code class="docutils literal notranslate"><span class="pre">numpydoc_xref_aliases</span></code> will supply some common <code class="docutils literal notranslate"><span class="pre">Python</span></code>
+standard library and <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> names for you. Then for your module, a useful
+<code class="docutils literal notranslate"><span class="pre">dict</span></code> may look like the following (e.g., if you were documenting
+<a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.model_selection" title="(in scikit-learn v1.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sklearn.model_selection</span></code></a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpydoc_xref_aliases</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;LeaveOneOut&#39;</span><span class="p">:</span> <span class="s1">&#39;sklearn.model_selection.LeaveOneOut&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This option depends on the <code class="docutils literal notranslate"><span class="pre">numpydoc_xref_param_type</span></code> option
+being <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt>numpydoc_xref_ignore<span class="classifier">set or <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code></span></dt><dd><p>How to handle terms not in <code class="docutils literal notranslate"><span class="pre">numpydoc_xref_aliases</span></code> when
+<code class="docutils literal notranslate"><span class="pre">numpydoc_xref_aliases=True</span></code>. The value can either be a <code class="docutils literal notranslate"><span class="pre">set</span></code>
+containing terms to ignore, or <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code>. In the former case, the set
+contains words not to cross-reference. Most likely, these are common words
+used in parameter type descriptions that may be confused for
+classes of the same name. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpydoc_xref_ignore</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;optional&#39;</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The default is an empty set.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">numpydoc_xref_ignore=&quot;all&quot;</span></code>, then all unrecognized terms are
+ignored, i.e. terms not in <code class="docutils literal notranslate"><span class="pre">numpydoc_xref_aliases</span></code> are <em>not</em> wrapped in
+<code class="docutils literal notranslate"><span class="pre">:obj:</span></code> roles.
+This configuration parameter may be useful if you only want to create
+cross references for a small number of terms. In this case, including the
+desired cross reference mappings in <code class="docutils literal notranslate"><span class="pre">numpydoc_xref_aliases</span></code> and setting
+<code class="docutils literal notranslate"><span class="pre">numpydoc_xref_ignore=&quot;all&quot;</span></code> is more convenient than explicitly listing
+terms to ignore in a set.</p>
+</dd>
+<dt>numpydoc_validation_checks<span class="classifier">set</span></dt><dd><p>The set of validation checks to report during the sphinx build process.
+The default is an empty set, so docstring validation is not run by
+default.
+If <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> is in the set, then the results of all of the
+<a class="reference internal" href="validation.html#validation-checks"><span class="std std-ref">built-in validation checks</span></a> are reported.
+If the set includes <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> and additional error codes, then all
+validation checks <em>except</em> the listed error codes will be run.
+If the set contains <em>only</em> individual error codes, then only those checks
+will be run.
+For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Report warnings for all validation checks</span>
+<span class="n">numpydoc_validation_checks</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;all&quot;</span><span class="p">}</span>
+
+<span class="c1"># Report warnings for all checks *except* for GL01, GL02, and GL05</span>
+<span class="n">numpydoc_validation_checks</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;GL01&quot;</span><span class="p">,</span> <span class="s2">&quot;GL02&quot;</span><span class="p">,</span> <span class="s2">&quot;GL05&quot;</span><span class="p">}</span>
+
+<span class="c1"># Only report warnings for the SA01 and EX01 checks</span>
+<span class="n">numpydoc_validation_checks</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;SA01&quot;</span><span class="p">,</span> <span class="s2">&quot;EX01&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>numpydoc_validation_exclude<span class="classifier">set</span></dt><dd><p>A container of strings using <a class="reference external" href="https://docs.python.org/3/library/re.html#module-re" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a> syntax specifying patterns to
+ignore for docstring validation.
+For example, to skip docstring validation for all objects in
+<code class="docutils literal notranslate"><span class="pre">mypkg.mymodule</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpydoc_validation_exclude</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;mypkg.mymodule.&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>If you wanted to also skip getter methods of <code class="docutils literal notranslate"><span class="pre">MyClass</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpydoc_validation_exclude</span> <span class="o">=</span> <span class="p">{</span><span class="sa">r</span><span class="s2">&quot;mypkg\.mymodule\.&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;MyClass\.get$&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The default is an empty set meaning no objects are excluded from docstring
+validation.
+Only has an effect when docstring validation is activated, i.e.
+<code class="docutils literal notranslate"><span class="pre">numpydoc_validation_checks</span></code> is not an empty set.</p>
+</dd>
+<dt>numpydoc_edit_link<span class="classifier">bool</span></dt><dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.7.0.</span></p>
+</div>
+<p>edit your HTML template instead</p>
+<p>Whether to insert an edit link after docstrings.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2019, numpydoc maintainers.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.1.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
