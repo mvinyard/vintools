@@ -111,7 +111,7 @@ def _construct_plot(
 
     """
 
-    if width_ratios == False:
+    if np.any(width_ratios) == False:
         if nplots <= ncols:
             width_ratios = np.ones(ncols)
 

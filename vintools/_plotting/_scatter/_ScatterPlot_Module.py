@@ -61,10 +61,11 @@ class ScatterPlot:
             width_ratios=self.width_ratios,
         )
 
-    def style(self):
+    def style(self, grid=True):
 
         _spine_presets(self.AxesDict)
-        _add_grid(self.AxesDict)
+        if grid:
+            _add_grid(self.AxesDict)
 
     def plot_data(self, adata, embedding, variables_to_plot):
 
