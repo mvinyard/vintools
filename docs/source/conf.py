@@ -11,12 +11,10 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 
-pip install python_docs_theme
-
-import os
-import sys
-sys.path.insert(0, os.path.abspath('/home/mvinyard/.anaconda3/lib/python3.8/site-packages/'))
-
+# import os
+# import sys
+# sys.path.insert(0, os.path.abspath('/home/mvinyard/.anaconda3/lib/python3.8/site-packages/'))
+import pydata_sphinx_theme
 
 # -- Project information -----------------------------------------------------
 
@@ -50,6 +48,7 @@ exclude_patterns = []
 #
 # html_theme = 'alabaster'
 html_theme = "pydata_sphinx_theme"
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
