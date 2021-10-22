@@ -1,3 +1,0 @@
-# scdiffeq
-
-## test
