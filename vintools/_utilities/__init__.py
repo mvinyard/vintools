@@ -24,7 +24,7 @@ from ._system_utils._fetch_cpu_count import _fetch_cpu_count as fetch_n_cpus
 from ._system_utils._use_n_cores import _use_n_cores as use_n_cores
 from ._system_utils._clone_GitHub_repo import _clone_GitHub_repo as git_clone
 from ._system_utils._get_pypi_package_loc import _get_pypi_package_loc as which
-from ._system_utils._flexible_mkdir import _flexible_mkdir as mkdir_flex
+from ._system_utils._flexible_mkdir import _flexible_multilevel_mkdir as mkdir_flex
 from ._system_utils._search_and_destroy import (
     _find_and_destroy_pycache as findNdestroy_pycache,
 )
