@@ -1,4 +1,4 @@
-from ..._utilities._system_utils._flexible_mkdir import _flexible_mkdir
+from ..._utilities._system_utils._flexible_mkdir import _flexible_multilevel_mkdir
 from ..._utilities._ux_utils._pystrings import _format_string_printing_font
 from ..._utilities._ux_utils._print_underline import _print_underline
 from ..._utilities._data_utils._read_txt import _read_txt
@@ -155,7 +155,7 @@ def _organize_PoolQ_outputs(run_name, standard_PoolQ_outfiles, outpath, fetch_on
     run_dir = run_name + ".PoolQ.3.3.2"
 
     if not fetch_only:
-        _flexible_mkdir(run_dir)
+        _flexible_multilevel_mkdir(run_dir)
 
     for file in standard_PoolQ_outfiles:
         if not fetch_only:

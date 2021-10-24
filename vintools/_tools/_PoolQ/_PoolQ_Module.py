@@ -15,7 +15,7 @@ from ._PoolQ_supporting_functions import _plot_correlation_scatter
 from ._get_guide_position_df import _get_guide_position_df
 from ._logfoldchange import _plot_multiLFC
 
-from ..._utilities._system_utils._flexible_mkdir import _flexible_mkdir
+from ..._utilities._system_utils._flexible_mkdir import _flexible_multilevel_mkdir
 from ..._plotting._plot_correlation_heatmap import _plot_correlation_heatmap
 
 
@@ -23,6 +23,7 @@ class _PoolQ:
     def __init__(
         self,
         outpath=False,
+        verbosity=True,
         java_path="/home/mvinyard/software/poolq-3.3.2/poolq3.sh",
         barcode_indicator="barcode",
         barcode_filename="rows.txt",
@@ -45,7 +46,7 @@ class _PoolQ:
         self.conditions_filename = conditions_filename
         self.standard_PoolQ_outfiles = standard_PoolQ_outfiles
         if outpath:
-            _flexible_mkdir(outpath)
+            _flexible_multilevel_mkdir(outpath, verbose=verbosity)
 
             self.outpath = outpath
 

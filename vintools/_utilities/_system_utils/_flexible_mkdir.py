@@ -12,6 +12,8 @@ def _flexible_mkdir(path, verbose):
 
     if os.path.exists(path):
         pass
+    elif path == '':
+        pass
     else:
         os.mkdir(path)
         if verbose:
@@ -19,7 +21,7 @@ def _flexible_mkdir(path, verbose):
             print("{}: {}".format(msg, path))
 
 
-def _flexible_multilevel_mkdir(path, verbose=False):
+def _flexible_multilevel_mkdir(path, verbose=True):
 
     """
     Create a directory or ignore if already present. Can create multiple levels of directories.
@@ -41,9 +43,10 @@ def _flexible_multilevel_mkdir(path, verbose=False):
 
     parsed_path = []
 
-    for n, directory in enumerate(path.split("/")):        
+    for n, directory in enumerate(path.split("/")):
+                
         parsed_path.append(directory)
-        if len(parsed_path) == len(path.split("/")):
+        if len(parsed_path) == (len(path.split("/")) - 1):
             _flexible_mkdir("/".join(parsed_path), verbose)
         else:
             _flexible_mkdir("/".join(parsed_path), verbose=False)
