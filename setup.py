@@ -6,7 +6,7 @@ import sys
 
 setup(
     name="vintools",
-    version="0.0.54",
+    version="0.0.55",
     python_requires=">3.8.0",
     author="Michael E. Vinyard - Harvard University - Massachussetts General Hospital - Broad Institute of MIT and Harvard",
     author_email="mvinyard@broadinstitute.org",
