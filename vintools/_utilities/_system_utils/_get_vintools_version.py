@@ -1,4 +1,4 @@
-def _get_vintools_version(setup_path="/home/mvinyard/software/vintoos/setup.py"):
+def _get_vintools_version(setup_path="/home/mvinyard/software/vintools/setup.py"):
 
     """reports version without circular import of package"""
 
