@@ -1,3 +1,9 @@
+
+# _get_data_bounds.py
+__module_name__ = "_get_data_bounds.py"
+__author__ = ", ".join(["Michael E. Vinyard"])
+__email__ = ", ".join(["vinyard@g.harvard.edu",])
+
 # package imports #
 # --------------- #
 import numpy as np

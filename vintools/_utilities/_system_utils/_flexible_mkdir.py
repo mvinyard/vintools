@@ -1,4 +1,9 @@
 
+# _flexible_mkdir.py
+__module_name__ = "_flexible_mkdir.py"
+__author__ = ", ".join(["Michael E. Vinyard"])
+__email__ = ", ".join(["vinyard@g.harvard.edu",])
+
 # package imports #
 # --------------- #
 import os

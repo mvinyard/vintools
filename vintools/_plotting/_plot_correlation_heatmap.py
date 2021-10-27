@@ -16,12 +16,11 @@ matplotlib.rcParams["font.family"] = "sans-serif"
 
 
 def _plot_correlation_heatmap(
-    df, title="Sample Correlation", figsize=1, title_y=1.15, title_x=0, savename=False
+    df, title="Sample Correlation", figsize=1, title_y=1.15, title_x=0, savename=False, cbar_aspect=20, cbar_shrink=0.6,
 ):
 
-    DefaultFigsizeDict = _get_default_figure_height_width()
-    default_h, default_w = DefaultFigsizeDict["height"], DefaultFigsizeDict["width"]
-
+    default_h, default_w = _get_default_matplotlib_figure_width_height()
+    
     fig = plt.figure(figsize=(default_w * figsize, default_h * figsize))
     gridspec = GridSpec(1, 1)
     ax = fig.add_subplot(gridspec[0, 0])
@@ -38,7 +37,7 @@ def _plot_correlation_heatmap(
         df.columns.values.astype(str),
         rotation=0,
     )
-    plt.colorbar(im, shrink=0.6, aspect=30)
+    plt.colorbar(im, shrink=cbar_shrink, aspect=cbar_aspect)
     plt.title(title, y=title_y, x=title_x, fontsize=16)
 
     if savename:
@@ -46,5 +45,5 @@ def _plot_correlation_heatmap(
         plt.savefig(figsavename, bbox_inches="tight")
     plt.tight_layout()
     plt.show()
-
-    return figsavename
+    if savename:
+        return figsavename

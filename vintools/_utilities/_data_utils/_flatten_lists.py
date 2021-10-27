@@ -1,3 +1,10 @@
+
+# _flatten_lists.py
+__module_name__ = "_flatten_lists.py"
+__author__ = ", ".join(["Michael E. Vinyard"])
+__email__ = ", ".join(["vinyard@g.harvard.edu",])
+
+
 def _flatten_list_of_lists(_2d_list):
 
     """Input a list of lists and output one single list"""

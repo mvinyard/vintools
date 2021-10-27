@@ -22,7 +22,9 @@ from ..._plotting._plot_correlation_heatmap import _plot_correlation_heatmap
 class _PoolQ:
     def __init__(
         self,
-        outpath=False,
+        sequencing,
+        metadata,
+        outpath,
         verbosity=True,
         java_path="/home/mvinyard/software/poolq-3.3.2/poolq3.sh",
         barcode_indicator="barcode",
